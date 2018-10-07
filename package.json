@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "eslint-config-airbnb-bundle": "^2.0.4",
+    "jwt-decode": "^2.2.0",
+    "node-fetch": "^2.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
