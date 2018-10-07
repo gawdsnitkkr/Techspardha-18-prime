@@ -22,69 +22,66 @@ const login = (accessToken) => {
     });
 };
 
-const signup = () => {
+const signup = (data) => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  // reqOptions.body = JSON.stringify({ accessToken });
+  reqOptions.body = JSON.stringify(data);
   reqOptions.method = 'PUT';
   return fetch(`${config.api.url}/signUp`, reqOptions)
     .then(response => response.json())
     .then(user => user);
 };
 
-const events = (accessToken) => {
+const events = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/events`, reqOptions)
     .then(response => response.json())
     .then(events => events);
 };
 
-const categories = (accessToken) => {
+const categories = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/categories`, reqOptions)
     .then(response => response.json())
     .then(categories => categories);
 };
 
-const timeline = (accessToken) => {
+const timeline = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/events/timeline`, reqOptions)
     .then(response => response.json())
     .then(timeline => timeline);
 };
 
-const postEvents = (accessToken) => {
+const postEvents = (data) => {
   const reqOptions = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
 
-  reqOptions.body = JSON.stringify({ accessToken });
+  reqOptions.body = JSON.stringify(data);
   reqOptions.method = 'POST';
   return fetch(`${config.api.url}/events`, reqOptions)
     .then(response => response.json())
@@ -92,28 +89,28 @@ const postEvents = (accessToken) => {
 };
 
 
-const registeredEvents = (accessToken) => {
+const registeredEvents = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
+  reqOptions.body = JSON.stringify();
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/user/event`, reqOptions)
     .then(response => response.json())
     .then(events => events);
 };
 
-const putEvents = (accessToken) => {
+const putEvents = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
+  reqOptions.body = JSON.stringify();
   reqOptions.method = 'PUT';
   return fetch(`${config.api.url}/user/event`, reqOptions)
     .then(response => response.json())
@@ -127,7 +124,6 @@ const getFacts = () => {
       'Content-Type': 'application/json',
     },
   };
-  // reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/facts`, reqOptions)
     .then(response => response.json())
@@ -141,21 +137,19 @@ const getVideos = () => {
       'Content-Type': 'application/json',
     },
   };
-  // reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/videos`, reqOptions)
     .then(response => response.json())
     .then(videos => videos);
 };
 
-const query = (accessToken) => {
+const query = () => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'POST';
   return fetch(`${config.api.url}/query`, reqOptions)
     .then(response => response.json())
@@ -169,7 +163,6 @@ const timestamp = () => {
       'Content-Type': 'application/json',
     },
   };
-  // reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/timestamp`, reqOptions)
     .then(response => response.json())
