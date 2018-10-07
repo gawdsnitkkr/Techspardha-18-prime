@@ -2,28 +2,28 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
 
-{ /* <a className="navbar-brand" href="/finder" id="navbar-finder-button">techOS</a> */ }
+// { /* <a className="navbar-brand" href="/finder" id="navbar-finder-button">techOS</a> */ }
 
 const Nav = () => (
   <nav className="navbar navbar-light bg-light">
     <Link to="/finder" id="navbar-finder-button" className="navbar-brand">
-techOS
+      techOS
     </Link>
     <div className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" href="#" id="navbarTimelineDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Timeline
+       Timeline
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
         <h2>
-October 26, 2018
+          October 26, 2018
         </h2>
         <h5>
-Friday
+         Friday
         </h5>
         <h2>
-10:00
+         10:00
           <small>
-AM
+         AM
           </small>
         </h2>
         <ul>
@@ -32,36 +32,36 @@ AM
           <li>
             <h6>
               <a href="#event1">
-Event 1
+            Event 1
               </a>
             </h6>
             <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
             </p>
           </li>
           <li>
             <h6>
               <a href="#event2">
-Event 1
+              Event 1
               </a>
             </h6>
             <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
             </p>
           </li>
           <li>
             <h6>
               <a href="#event3">
-Event 1
+                Event 1
               </a>
             </h6>
             <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
             </p>
           </li>
         </ul>
         <a href="#fullTimeline">
-See full timeline
+         See full timeline
         </a>
       </div>
     </div>
@@ -71,16 +71,16 @@ See full timeline
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
         <a className="dropdown-item" href="#myProfile">
-My Profile
+         My Profile
         </a>
         <a className="dropdown-item" href="#userRegisteredEvents">
-Registered Events
+          Registered Events
         </a>
         <a className="dropdown-item" href="#userRecommendedEvents">
-Recommended Events
+          Recommended Events
         </a>
         <a className="dropdown-item" href="#userLogout">
-Log Out
+          Log Out
         </a>
       </div>
     </div>
