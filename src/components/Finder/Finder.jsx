@@ -15,75 +15,75 @@ const Finder = () => (
 
           <div className="row apps my-3">
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+              Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+              Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+               Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+               Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+              Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+               Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
             <div className="col-6 col-sm-3 my-4 folder">
-              <img src="/images/folder2.svg" style={{ width: '30%' }} />
+              <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
               <span className="folder-text">
-Event 1
+                Event 1
               </span>
             </div>
           </div>
