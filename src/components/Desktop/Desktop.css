@@ -1,0 +1,15 @@
+#desktop{
+    position: absolute;
+    background: url('/images/img.jpg') no-repeat;
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+}
+
+#desktop > h1{
+    position: absolute;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

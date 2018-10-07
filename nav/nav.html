@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Navbar</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="nav.style.css">
+</head>
+<body>
+
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="#" id="navbar-finder-button">techOS</a>
+  <div class="nav-item dropdown">
+  	<a class="nav-link dropdown-toggle" href="#" id="navbarTimelineDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Timeline
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
+        <h2>October 26, 2018</h2>
+        <h5>Friday</h5>
+        <h2>10:00<small>AM</small></h2>
+        <ul>
+        	<li>
+        		<h6><a href="#event1">Event 1</a></h6>
+        		<p>
+        			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+        		</p>
+        	</li>
+        	<li>
+        		<h6><a href="#event2">Event 1</a></h6>
+        		<p>
+        			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+        		</p>
+        	</li>
+        	<li>
+        		<h6><a href="#event3">Event 1</a></h6>
+        		<p>
+        			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+        		</p>
+        	</li>
+        </ul>
+        <a href="#fullTimeline">See full timeline</a>
+      </div>
+  </div>
+  <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        John Appleseed
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
+        <a class="dropdown-item" href="#myProfile">My Profile</a>
+        <a class="dropdown-item" href="#userRegisteredEvents">Registered Events</a>
+        <a class="dropdown-item" href="#userRecommendedEvents">Recommended Events</a>
+        <a class="dropdown-item" href="#userLogout">Log Out</a>
+      </div>
+  </div>
+</nav>
+
+<div id="dummy-finder">
+	
+</div>
+
+</body>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="main.js"></script>
+</html>

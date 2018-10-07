@@ -1,0 +1,22 @@
+#timelineDropdown {
+	width: 500px;
+	border: 0px solid;
+	background: #f8f9fa !important;
+	padding: 20px;
+	transform: translate(-40%, 0);
+}
+
+#userDropdown {
+	background: #f8f9fa !important;
+	border: 0px solid;
+	padding: 20px;
+	transform: translate(-50px, 0);
+}
+
+#dummy-finder {
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 100vw;
+	height: 100vh;
+	margin: 0px;
+	padding: 0px;
+}
