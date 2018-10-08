@@ -5,6 +5,7 @@ import Desktop from './components/Desktop/Desktop';
 import Events from './components/Events/Events';
 import Guests from './components/Guests/Guests';
 import Contact from './components/ContactUs/ContactUs';
+import AboutUs from './components/AboutUs/AboutUs';
 
 const App = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
         <Route path="/events" component={Events} />
         <Route path="/guestLectures" component={Guests} />
         <Route path="/contactUs" component={Contact} />
+        <Route path="/aboutUs" component={AboutUs} />
       </div>
     </Switch>
   </BrowserRouter>

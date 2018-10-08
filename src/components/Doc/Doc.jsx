@@ -8,7 +8,9 @@ const DOC = () => (
       <div className="btn-group bg-light" role="group" aria-label="dockIcons">
         <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="About us">
           <a href="#aboutus">
-            <img src="/images/doc/aboutus.png" className="dock-icon" />
+            <Link to="/aboutUs">
+              <img src="/images/doc/aboutus.png" className="dock-icon" />
+            </Link>
           </a>
         </button>
         <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Exhibitions">
