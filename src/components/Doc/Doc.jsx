@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './Doc.css';
 
 const DOC = () => (
-  <footer className="fixed-bottom bg-light" id="dock">
+  <footer className="fixed-bottom" id="dock">
     <div className="container">
-      <div className="btn-group" role="group" aria-label="dockIcons">
+      <div className="btn-group bg-light" role="group" aria-label="dockIcons">
         <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="About us">
           <a href="#aboutus">
             <img src="/images/doc/aboutus.png" className="dock-icon" />
