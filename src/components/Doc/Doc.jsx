@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Doc.css';
 
@@ -35,7 +35,9 @@ const DOC = () => (
         </button>
         <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Contact us">
           <a href="#contactUs">
-            <img src="/images/doc/contact.png" className="dock-icon" />
+            <Link to="/contactUs">
+              <img src="/images/doc/contact.png" className="dock-icon" />
+            </Link>
           </a>
         </button>
       </div>
