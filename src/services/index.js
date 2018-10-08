@@ -103,14 +103,14 @@ const registeredEvents = () => {
     .then(events => events);
 };
 
-const putEvents = () => {
+const putEvents = (data) => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify();
+  reqOptions.body = JSON.stringify(data);
   reqOptions.method = 'PUT';
   return fetch(`${config.api.url}/user/event`, reqOptions)
     .then(response => response.json())
@@ -143,7 +143,7 @@ const getVideos = () => {
     .then(videos => videos);
 };
 
-const query = () => {
+const query = (data) => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
@@ -151,6 +151,7 @@ const query = () => {
     },
   };
   reqOptions.method = 'POST';
+  reqOptions.body = JSON.stringify(data);
   return fetch(`${config.api.url}/query`, reqOptions)
     .then(response => response.json())
     .then(result => result);
