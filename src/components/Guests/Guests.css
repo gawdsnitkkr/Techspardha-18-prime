@@ -1,0 +1,23 @@
+#guest-page {
+	min-height: 100vh;
+	margin: 0px;
+}
+.mobile-no {
+	margin-left: 10px;
+}
+#back-btn {
+	margin-top: -10px;
+	margin-right: 40px;
+	width: 48px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+#back-btn:hover {
+	margin-right: 50px;
+}
+.guest-icons {
+	margin: 3px;
+}
+#guest-lecture-heading {
+	margin-bottom: 50px;
+}

@@ -3,6 +3,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Desktop from './components/Desktop/Desktop';
 import Events from './components/Events/Events';
+import Guests from './components/Guests/Guests';
 
 const App = () => (
   <BrowserRouter>
@@ -11,6 +12,7 @@ const App = () => (
         <Nav />
         <Route exact path="/" component={Desktop} />
         <Route path="/events" component={Events} />
+        <Route path="/guestLectures" component={Guests} />
       </div>
     </Switch>
   </BrowserRouter>
