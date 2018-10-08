@@ -1,0 +1,16 @@
+.dock-icon {
+	display: inline;
+	width: 48px;
+	transition: all 0.2s ease;
+}
+.dock-icon-btn {
+	background: transparent;
+	margin: 10px;
+	transition: all 0.2s ease;
+}
+.dock-icon:hover {
+	transform: scale(1.2);
+}
+#dock {
+	text-align: center;
+}
