@@ -1,0 +1,27 @@
+#searchBox {
+	max-width: 50%;
+	border-radius: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#events-page {
+	min-height: 100vh;
+	margin: 0px;
+}
+.mobile-no {
+	margin-left: 10px;
+}
+#back-btn {
+	margin-top: -10px;
+	margin-right: 40px;
+	width: 48px;
+	transition: all 0.2s ease;
+	cursor: pointer;
+}
+#back-btn:hover {
+	margin-right: 50px;
+}
+.event-icons {
+	width: 20px;
+	margin: 2px;
+}

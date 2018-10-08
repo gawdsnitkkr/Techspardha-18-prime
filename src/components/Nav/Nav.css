@@ -12,3 +12,13 @@
 	padding: 20px;
 	transform: translate(-50px, 0);
 }
+
+#navbar-finder-button{
+	cursor: pointer;
+}
+
+.Finder{
+	position: absolute;
+	z-index: 100;
+	display: none;
+}

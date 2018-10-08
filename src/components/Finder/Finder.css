@@ -1,19 +1,11 @@
 .main-container{
-    background: url('/images/img.jpg') no-repeat;
-    background-size:cover;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.9);
     height:100vh;
     margin:0;
-    padding:0;
+    padding:50px;
+    width: 100vw;
     overflow:hidden;
-}
-
-.appsContainerDiv{
-    background:inherit;
-    filter: blur(10px);
-    height:100vh;
-    padding:0;
-    position:fixed;
-    width:100%;
 }
 
 .search input[type=text]{
@@ -50,6 +42,11 @@ button:focus {
 .folder{
     text-align: center;
     height:100px;
+}
+
+.event-link, .event-link:hover{
+    color: #ffffff;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
