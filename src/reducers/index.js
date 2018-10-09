@@ -64,10 +64,55 @@ const categories = (state = initialState.categories, action) => {
   }
 };
 
+const timeline = (state = initialState.timeline, action) => {
+  switch (action.type) {
+    case 'TIMELINE_FETCH_SUCCESS':
+      return action.data.data;
+
+    case 'TIMELINE_FETCH_FAILURE':
+      // TODO:= show alert here to try again
+      return state;
+
+    default:
+      return state;
+  }
+};
+
+const facts = (state = initialState.facts, action) => {
+  switch (action.type) {
+    case 'FETCH_FACTS_SUCCESS':
+      return action.data.data;
+
+    case 'FETCH_FACTS_FAILURE':
+      // TODO:= show alert here to try again
+      return state;
+
+    default:
+      return state;
+  }
+};
+
+const videos = (state = initialState.videos, action) => {
+  switch (action.type) {
+    case 'FETCH_VIDEOS_SUCCESS':
+      return action.data.data;
+
+    case 'FETCH_VIDEOS_FAILURE':
+      // TODO:= show alert here to try again
+      return state;
+
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   user,
   events,
   categories,
+  timeline,
+  facts,
+  videos,
 });
 
 export default rootReducer;
