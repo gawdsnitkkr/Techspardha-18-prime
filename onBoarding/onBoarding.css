@@ -1,0 +1,8 @@
+#onBoarding-page {
+	min-height: 100vh;
+	margin: 0px;
+}
+.control-width {
+	max-width: 50%;
+	margin-left: 20px;
+}

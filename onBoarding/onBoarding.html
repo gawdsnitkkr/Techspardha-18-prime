@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>On boarding</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="onBoarding.css">
+</head>
+<body>
+
+<div class="jumbotron" id="onBoarding-page">
+	<div class="text-center">
+		<img src="startup.png"/>
+	</div>
+	<h1 class="display-4 text-center">Welcome aboard</h1>
+  <h1 class="text-center mb-5">Techspardha'18 Prime</h1>
+  <h5 class="text-center">To continue we need a few more details about you...</h5>
+  
+	<div class="container text-center">
+		<hr class="my-4">
+		
+		<div class="row justify-content-md-center">
+			<div class="col-sm-4">
+				<div class="form-group">
+			    <input type="text" class="form-control" id="user-college" aria-describedby="collegeName" placeholder="College name">
+			    <label for="user-college">Your college</label>
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<select class="form-control" id="user-year">
+				  <option>First</option>
+				  <option>Second</option>
+				  <option>Third</option>
+				  <option>Fourth</option>
+				</select>
+				<label for="user-year">Your year</label>
+			</div>
+		</div>
+
+		<div class="row justify-content-md-center">
+			<div class="col-sm-4">
+				<button type="button" class="btn btn-danger">Continue</button>
+			</div>
+		</div>
+	
+		<hr class="my-4">
+	</div>
+
+</div>
+
+</body>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="onBoarding.js"></script>
+</html>
