@@ -73,7 +73,7 @@ const Contact = () => {
       <h1 className="display-4 text-center" id="contactUs-heading">
         <small>
           <Link to="/">
-            <img src="/images/back.png" id="back-btn" />
+            <img src="/images/back.png" id="back-btn" alt="back img" />
           </Link>
         </small>
         Contact us
