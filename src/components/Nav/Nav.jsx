@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import './Nav.css';
 import Finder from '../Finder/Finder';
+import './Nav.css';
 
 
 class Nav extends React.Component {
@@ -94,18 +95,10 @@ class Nav extends React.Component {
 
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
-              <a className="dropdown-item" href="#myProfile">
+              <Link className="dropdown-item" to="/user">
 	My Profile
 
-              </a>
-              <a className="dropdown-item" href="#userRegisteredEvents">
-	Registered Events
-
-              </a>
-              <a className="dropdown-item" href="#userRecommendedEvents">
-	Recommended Events
-
-              </a>
+              </Link>
               <a className="dropdown-item" href="#userLogout">
 	Log Out
 

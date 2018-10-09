@@ -7,6 +7,7 @@ import Guests from './components/Guests/Guests';
 import Contact from './components/ContactUs/ContactUs';
 import AboutUs from './components/AboutUs/AboutUs';
 import Sponsers from './components/Sponsers/Sponsers';
+import User from './components/User/User';
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => (
         <Route path="/contactUs" component={Contact} />
         <Route path="/aboutUs" component={AboutUs} />
         <Route path="/sponsers" component={Sponsers} />
+        <Route path="/user" component={User} />
       </div>
     </Switch>
   </BrowserRouter>
