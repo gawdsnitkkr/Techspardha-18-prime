@@ -22,10 +22,7 @@
         "allowChildren": false
       }
     ],
-    "jsx-a11y/anchor-is-valid": [ "error", {
-      "components": [ "Link" ],
-      "specialLink": [ "to" ]
-    }]
+   "jsx-a11y/anchor-is-valid": [ "error", { "components": [ "Link" ], "specialLink": [ "onClick", "to" ] } ],
   },
   "parser": "babel-eslint",
   "env": {
