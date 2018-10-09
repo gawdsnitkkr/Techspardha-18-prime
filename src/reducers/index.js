@@ -78,10 +78,11 @@ const timeline = (state = initialState.timeline, action) => {
   }
 };
 
-const facts = (state = initialState.facts, action) => {
+const facts = (state = initialState.fact, action) => {
+  console.log(action);
   switch (action.type) {
     case 'FETCH_FACTS_SUCCESS':
-      return action.data.data;
+      return action.data.data.message;
 
     case 'FETCH_FACTS_FAILURE':
       // TODO:= show alert here to try again

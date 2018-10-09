@@ -13,7 +13,7 @@ const failure = (type, data) => ({
 const login = (token, provider) => (dispatch) => {
   services.login(token, provider).then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('SIGNUP_REQUIRED', data));
       } else {
         dispatch(success('SUCCESS_LOGIN', data));
@@ -25,7 +25,7 @@ const login = (token, provider) => (dispatch) => {
 const signup = formData => (dispatch) => {
   services.signup(formData).then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('ONBOARD_SUCCESS', data));
       } else {
         dispatch(success('ONBOARD_FAILURE', data));
@@ -37,7 +37,7 @@ const signup = formData => (dispatch) => {
 const getEvents = () => (dispatch) => {
   services.events().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('EVENTS_FETCH_SUCCESS', data));
       } else {
         dispatch(success('EVENTS_FETCH_FAILURE', data));
@@ -49,7 +49,7 @@ const getEvents = () => (dispatch) => {
 const getCategories = () => (dispatch) => {
   services.categories().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('CATEGORIES_FETCH_SUCCESS', data));
       } else {
         dispatch(success('CATEGORIES_FETCH_FAILURE', data));
@@ -61,7 +61,7 @@ const getCategories = () => (dispatch) => {
 const getTimeline = () => (dispatch) => {
   services.timeline().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('TIMELINE_FETCH_SUCCESS', data));
       } else {
         dispatch(success('TIMELINE_FETCH_FAILURE', data));
@@ -85,7 +85,7 @@ const createEvent = formData => (dispatch) => {
 const getRegisteredEvents = () => (dispatch) => {
   services.registeredEvents().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('USER_REGISTERED_EVENTS_SUCCESS', data));
       } else {
         dispatch(success('USER_REGISTERED_EVENTS_FAILURE', data));
@@ -97,7 +97,7 @@ const getRegisteredEvents = () => (dispatch) => {
 const updateEvent = formData => (dispatch) => {
   services.putEvents(formData).then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('EVENT_UPDATED_SUCCESS', data));
       } else {
         dispatch(success('EVENT_UPDATED_FAILURE', data));
@@ -109,7 +109,7 @@ const updateEvent = formData => (dispatch) => {
 const getFacts = () => (dispatch) => {
   services.getFacts().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('FETCH_FACTS_SUCCESS', data));
       } else {
         dispatch(success('FETCH_FACTS_FAILURE', data));
