@@ -8,19 +8,15 @@ const Buttons = (props) => {
   } = props;
   if (link) {
     return (
-      <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
-        <Link to={link}>
-          <img src={image} className="dock-icon" alt="icon" />
-        </Link>
-      </button>
+      <Link to={link} className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
+        <img src={image} className="dock-icon" alt="icon" />
+      </Link>
     );
   }
   return (
-    <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
-      <a href={href} target="_blank">
-        <img src={image} className="dock-icon" alt="icon" />
-      </a>
-    </button>
+    <a href={href} target="_blank" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
+      <img src={image} className="dock-icon" alt="icon" />
+    </a>
   );
 };
 
