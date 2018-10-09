@@ -10,277 +10,277 @@ const Sponsers = () => (
           <img src="/images/back.png" id="back-btn" alt="back button" />
         </Link>
       </small>
-Sponsors
+      Sponsors
     </h1>
 
     <div className="container text-center">
 
       <hr className="my-4" />
       <h2>
-Title sponsor
+      Title sponsor
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Associate partners
+      Associate partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Powered by
+      Powered by
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Event sponsors
+      Event sponsors
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Media partners
+      Media partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Audio-visual partners
+      Audio-visual partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Educational partners
+      Educational partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Photography and videography partners
+      Photography and videography partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Social initiative partners
+      Social initiative partners
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
 
       <hr className="my-4" />
       <h2>
-Other sponsors
+      Other sponsors
       </h2>
       <ul className="nav justify-content-center">
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/1290.png" className="sponsor-icons" />
+            <img src="/images/sponsers/1290.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " />
+            <img src="/images/sponsers/logo-header.png" className="sponsor-icons " alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link " href="#">
-            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" />
+            <img src="/images/sponsers/logo-toursim-website-Haryana.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">
-            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" />
+            <img src="/images/sponsers/Nivea_Logo.png" className="sponsor-icons" alt="img" />
           </a>
         </li>
       </ul>
