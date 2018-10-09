@@ -9,7 +9,7 @@ const initialState = {
   events: [],
   categories: [],
   timeline: [],
-  facts: [],
+  fact: '',
   videos: [],
 };
 
