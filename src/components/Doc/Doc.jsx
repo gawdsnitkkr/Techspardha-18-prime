@@ -2,44 +2,76 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Doc.css';
 
-const DOC = () => (
-  <footer className="fixed-bottom" id="dock">
-    <div className="container">
-      <div className="btn-group bg-light" role="group" aria-label="dockIcons">
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="About us">
-          <Link to="/aboutUs">
-            <img src="/images/doc/aboutus.png" className="dock-icon" alt="icon" />
-          </Link>
-        </button>
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Exhibitions">
-          <a href="#exhibition">
-            <img src="/images/doc/exhibition.png" className="dock-icon" alt="icon" />
-          </a>
-        </button>
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Guest lecture">
-          <Link to="/guestLectures">
-            <img src="/images/doc/guest.png" className="dock-icon" alt="icon" />
-          </Link>
-        </button>
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Hackathon">
-          <a href="https://techspardha.org/Hackathon/" target="_blank">
-            <img src="/images/doc/hackathon.png" className="dock-icon" alt="icon" />
-          </a>
-        </button>
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Sponsors">
-          <Link to="sponsers">
-            <img src="/images/doc/sponsor.png" className="dock-icon" alt="icon" />
-          </Link>
-        </button>
-        <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title="Contact us">
-          <Link to="/contactUs">
-            <img src="/images/doc/contact.png" className="dock-icon" alt="icon" />
-          </Link>
-        </button>
-      </div>
-    </div>
-  </footer>
+const Buttons = (props) => {
+  const {
+    link, image, title, href,
+  } = props;
+  if (link) {
+    return (
+      <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
+        <Link to={link}>
+          <img src={image} className="dock-icon" alt="icon" />
+        </Link>
+      </button>
+    );
+  }
+  return (
+    <button type="button" className="btn dock-icon-btn" data-toggle="tooltip" data-placement="top" title={title}>
+      <a href={href} target="_blank">
+        <img src={image} className="dock-icon" alt="icon" />
+      </a>
+    </button>
+  );
+};
 
-);
+const DOC = () => {
+  const dockerButtons = [
+    {
+      link: '/aboutUs',
+      title: 'About us',
+      image: '/images/doc/aboutus.png',
+    },
+    {
+      link: '/exhibitions',
+      title: 'Exhibitions',
+      image: '/images/doc/exhibition.png',
+    },
+    {
+      link: '/guestLectures',
+      title: 'Guest lectures',
+      image: '/images/doc/guest.png',
+    },
+    {
+      href: 'https://techspardha.org/Hackathon/',
+      title: 'Hackathon',
+      image: '/images/doc/hackathon.png',
+    },
+    {
+      link: '/sponsers',
+      title: 'Sponsors',
+      image: '/images/doc/sponsor.png',
+    },
+    {
+      link: '/contactUs',
+      title: 'Contact us',
+      image: '/images/doc/contact.png',
+    },
+  ];
+  return (
+    <footer className="fixed-bottom" id="dock">
+      <div className="container">
+        <div className="btn-group bg-light" role="group" aria-label="dockIcons">
+          {
+            dockerButtons.map(i => (
+              <div key={i.title}>
+                <Buttons link={i.link} image={i.image} title={i.title} href={i.href} />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </footer>
+  );
+};
 
 export default DOC;
