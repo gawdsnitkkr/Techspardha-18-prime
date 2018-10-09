@@ -1,7 +1,6 @@
 
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Desktop from './components/Desktop/Desktop';
 import Events from './components/Events/Events';
