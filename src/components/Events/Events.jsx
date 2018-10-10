@@ -4,32 +4,40 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 import './Events.css';
 
-const EventCard = () => {
-  console.log('event');
+const EventCard = (props) => {
+  const { event } = props;
   return (
     <div className="col-sm-4">
       <div className="card">
         <div className="card-header">
           <h3 className="card-title">
-          Event name
+            {event.eventName}
           </h3>
           <div className="row">
             <div className="col-sm-4 text-center">
               <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
               <h6>
-              Date
+                {event.startTime}
+                <br />
+                to
+                <br />
+                {event.endTime}
               </h6>
             </div>
             <div className="col-sm-4 text-center">
               <img src="/images/time.png" className="event-icons" alt="time-icon" />
               <h6>
-              Time
+                {event.startTime}
+                <br />
+                to
+                <br />
+                {event.endTime}
               </h6>
             </div>
             <div className="col-sm-4 text-center">
               <img src="/images/location.png" className="event-icons" alt="date-icon" />
               <h6>
-              Location
+                {event.venue}
               </h6>
             </div>
           </div>
