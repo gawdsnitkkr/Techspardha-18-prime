@@ -15,14 +15,24 @@ const Event = (props) => {
   return (
     <li>
       <h6>
-        <a href="#event1">
+        <Link to={`/events/${event.eventDetails.eventCategory}`}>
           {event.eventDetails.eventName}
-        </a>
+        </Link>
+      </h6>
+      <h6>
+        <i>
+        Status-
+        </i>
+        {' '}
+        <b>
+          {event.status}
+        </b>
+      </h6>
+      <h6>
+        {new Date(event.eventDetails.startTime).toDateString()}
       </h6>
       <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam
+        {event.eventDetails.description}
       </p>
     </li>
   );

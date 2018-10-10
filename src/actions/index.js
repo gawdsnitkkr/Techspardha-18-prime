@@ -132,7 +132,6 @@ const getVideos = () => (dispatch) => {
 };
 
 const getCurrentEvents = timestamp => (dispatch) => {
-  console.log('getting');
   services.getCurrentEvents(timestamp).then(
     (data) => {
       if (data.success) {
