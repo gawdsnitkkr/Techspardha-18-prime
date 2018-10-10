@@ -13,7 +13,7 @@ const failure = (type, data) => ({
 const login = (token, provider) => (dispatch) => {
   services.login(token, provider).then(
     (data) => {
-      if (data.success) {
+      if (data.success && !data.onBoard) {
         dispatch(failure('SIGNUP_REQUIRED', data));
       } else {
         dispatch(success('SUCCESS_LOGIN', data));

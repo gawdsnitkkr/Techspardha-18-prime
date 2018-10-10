@@ -1,9 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import $ from 'jquery';
 import Finder from '../Finder/Finder';
 import './Nav.css';
 
+
+const DropDown = () => {
+  console.log('sdf');
+  return (
+    <div className="nav-item dropdown">
+      <a className="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            John Appleseed
+      </a>
+      <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
+        <Link className="dropdown-item" to="/user">
+              My Profile
+        </Link>
+        <a className="dropdown-item" href="#userLogout">
+              Log Out
+        </a>
+      </div>
+    </div>
+  );
+};
 
 class Nav extends React.Component {
   componentDidMount() {
@@ -13,6 +33,7 @@ class Nav extends React.Component {
   }
 
   render() {
+    const { loggedIn, onboard } = this.props;
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
@@ -79,19 +100,9 @@ class Nav extends React.Component {
               </a>
             </div>
           </div>
-          <div className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            John Appleseed
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
-              <Link className="dropdown-item" to="/user">
-              My Profile
-              </Link>
-              <a className="dropdown-item" href="#userLogout">
-              Log Out
-              </a>
-            </div>
-          </div>
+          {
+            (loggedIn && onboard) ? <DropDown /> : <div />
+          }
         </nav>
         <div className="Finder">
           <Finder />
@@ -102,4 +113,9 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+const mapStateToProps = state => ({
+  onboard: state.user.onboard,
+  loggedIn: state.user.loggedIn,
+});
+
+export default connect(mapStateToProps)(Nav);

@@ -10,29 +10,22 @@ class Login extends React.Component {
     this.state = {};
   }
 
-  componentDidMount = () => {
-    // const { clearUser } = this.props;
-    // clearUser();
-  }
-
   componentWillReceiveProps = (nextProps) => {
     const { history } = this.props;
     if (nextProps.loggedin && nextProps.onboard) {
-      history.push('/dashboard');
+      // history.push('/dashboard');
     } else if (nextProps.loggedin && !nextProps.onboard) {
-      history.push('/onboard');
+      history.push('/onBoarding');
     }
   };
 
   responseGoogle = (response) => {
-    if (!response.accessToken) {
-      alert('try again');
+    if (!response.tokenId) {
+      alert('try aganin');
       // return;
     }
-    console.log(response);
     const { login } = this.props;
-    console.log(response.accessToken);
-    login(response.accessToken);
+    login(response.tokenId);
   };
 
   render() {
@@ -54,16 +47,13 @@ class Login extends React.Component {
 
 const mapStateToProps = state => ({
   onboard: state.user.onboard,
-  loggedIn: state.user.loggedin,
+  loggedIn: state.user.loggedIn,
 });
 
 const mapDispatchToProps = dispatch => ({
   login: (token) => {
     dispatch(actions.login(token));
   },
-  // clearUser: () => {
-  //   dispatch(actions.clearUser());
-  // },
 });
 
 export default withRouter(

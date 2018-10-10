@@ -8,8 +8,8 @@ const user = (state = initialState.user, action) => {
     case 'SUCCESS_LOGIN':
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
-        loggedin: true,
-        onboard: !!(jwtDecode(action.data.data.token).user.onboard),
+        loggedIn: true,
+        onboard: action.data.onBoard,
       });
 
     case 'SIGNUP_REQUIRED':
