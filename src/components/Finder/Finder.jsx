@@ -8,20 +8,22 @@ import actions from '../../actions';
 const Folder = () => {
   console.log('folder');
   return (
-    <div className="col-6 col-sm-3 my-4 folder">
-      <Link to="/events" className="event-link">
-        <img src="/images/folder2.svg" style={{ width: '30%' }} alt="img" />
-        <span className="folder-text">
-              Event 1
+    <li className="nav-item finder-folder">
+      <Link to="/events" className="category-link">
+        <img src="/images/folder.png" />
+        <span>
+          <p>
+Category 1
+          </p>
         </span>
       </Link>
-    </div>
+    </li>
   );
 };
 
 class Finder extends Component {
   componentDidMount = () => {
-    $('.event-link').click(() => {
+    $('.category-link').click(() => {
       $('.Finder').fadeToggle(200);
     });
 
@@ -30,22 +32,25 @@ class Finder extends Component {
   }
 
   render = () => (
-    <div className="main-container">
-      <div className="row appsContainerDiv_data">
-        <div className="col-12">
-          <div className="container my-5">
-            <div className="row search justify-content-center">
-              <input type="text" placeholder="Search.." />
-            </div>
-            <hr />
-            <div className="row apps my-3">
-              <Folder />
-            </div>
-          </div>
-        </div>
+    <div className="jumbotron" id="finder-page">
+      <h1 className="display-4 text-center">
+Categories
+      </h1>
+      <div className="form-group">
+        <center>
+          <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" />
+        </center>
       </div>
+      <hr className="my-4" />
 
+      <div className="container text-center">
+        <ul className="nav justify-content-center">
+          <Folder />
+        </ul>
+      </div>
     </div>
+
+
   );
 }
 
