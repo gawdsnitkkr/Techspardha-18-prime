@@ -6,7 +6,7 @@ const jwtDecode = require('jwt-decode');
 const login = (accessToken) => {
   const reqOptions = {
     headers: {
-      Accept: 'application/x-www-form-urlencoded',
+      Accept: 'application/json',
       'Content-Type': 'application/x-www-form-urlencoded',
     },
   };
