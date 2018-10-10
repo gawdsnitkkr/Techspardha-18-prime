@@ -9,43 +9,43 @@ const EventCard = (props) => {
   return (
     <div className="card">
       <div className="card-header">
-          <h3 className="card-title">
-            {event.eventName}
-          </h3>
-          <div className="row">
-            <div className="col-sm-4 text-center">
-              <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
-              <h6>
-                {event.startTime}
-                <br />
+        <h3 className="card-title" style={{ textTransform: 'capitalize' }}>
+          {event.eventName}
+        </h3>
+        <div className="row">
+          <div className="col-sm-4 text-center">
+            <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
+            <h6>
+              {event.startTime}
+              <br />
                 to
-                <br />
-                {event.endTime}
-              </h6>
-            </div>
-            <div className="col-sm-4 text-center">
-              <img src="/images/time.png" className="event-icons" alt="time-icon" />
-              <h6>
-                {event.startTime}
-                <br />
+              <br />
+              {event.endTime}
+            </h6>
+          </div>
+          <div className="col-sm-4 text-center">
+            <img src="/images/time.png" className="event-icons" alt="time-icon" />
+            <h6>
+              {event.startTime}
+              <br />
                 to
-                <br />
-                {event.endTime}
-              </h6>
-            </div>
-            <div className="col-sm-4 text-center">
-              <img src="/images/location.png" className="event-icons" alt="date-icon" />
-              <h6>
-                {event.venue}
-              </h6>
-            </div>
+              <br />
+              {event.endTime}
+            </h6>
+          </div>
+          <div className="col-sm-4 text-center">
+            <img src="/images/location.png" className="event-icons" alt="date-icon" />
+            <h6>
+              {event.venue}
+            </h6>
           </div>
         </div>
+      </div>
       <div className="card-body">
-          <h5>
+        <h5>
           About
-          </h5>
-          <p className="card-text">
+        </h5>
+        <p className="card-text">
 			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -53,40 +53,40 @@ const EventCard = (props) => {
 			    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 			    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-            {' '}
-          </p>
-          <h5>
+          {' '}
+        </p>
+        <h5>
           Rules
-          </h5>
-          <p className="card-text">
-            <ul>
-              <li>
+        </h5>
+        <p className="card-text">
+          <ul>
+            <li>
               Rule 1
-              </li>
-              <li>
+            </li>
+            <li>
               Rule 2
-              </li>
-            </ul>
-          </p>
-          <h5>
+            </li>
+          </ul>
+        </p>
+        <h5>
           Coordinators
-          </h5>
-          <p className="card-text">
-            <ul>
-              <li>
-                <h5>
+        </h5>
+        <p className="card-text">
+          <ul>
+            <li>
+              <h5>
                 John
-                  <small className="mobile-no">
+                <small className="mobile-no">
                   9999999999
-                  </small>
-                </h5>
-              </li>
-            </ul>
-          </p>
-          <a href="#" className="btn btn-primary">
+                </small>
+              </h5>
+            </li>
+          </ul>
+        </p>
+        <a href="#" className="btn btn-primary">
           Register
-          </a>
-        </div>
+        </a>
+      </div>
     </div>
 
   );
@@ -103,7 +103,7 @@ class Events extends React.Component {
     console.log(events, 'lol');
     return (
       <div className="jumbotron" id="events-page">
-        <h1 className="display-4 text-center">
+        <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }}>
           <small>
             <Link to="/">
               <img src="/images/back.png" id="back-btn" alt="go_back" />
