@@ -5,6 +5,7 @@
 	margin-bottom: 20px;
 }
 #finder-page {
+	position: fixed;
     min-height: 100vh;
     min-width: 100vw;
 	margin: 0px;
