@@ -2,6 +2,9 @@ import React from 'react';
 import './Desktop.css';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import Login from '../Login/login';
+
+const jwtDecode = require('jwt-decode');
 
 class Desktop extends React.Component {
   componentDidMount = () => {
@@ -10,27 +13,32 @@ class Desktop extends React.Component {
   }
 
   render = () => {
-    const { fact } = this.props;
+    const { fact, loggedIn, onboard } = this.props;
 
     return (
       <div className="jumbotron" id="desktop-page">
         <div className="container text-center" id="desktop-center">
           <h1 className="display-2" id="main-heading">
-Techspardha'18
+          Techspardha'18
             {' '}
             <small className="text-muted">
-Prime
+            Prime
             </small>
           </h1>
           <h2 className="mb-4">
-Come join us this October
+          Come join us this October
           </h2>
 
           <div className="row justify-content-md-center">
             <div className="col-sm-4">
-              <button type="button" className="btn btn-danger">
-Sign in
-              </button>
+              {((loggedIn && onboard) || (localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) ? (
+                <div>
+                Hi
+                  {' '}
+                  {jwtDecode(localStorage.getItem('token')).name}
+                  !
+                </div>
+              ) : <Login />}
             </div>
           </div>
 
@@ -41,7 +49,7 @@ Sign in
             </p>
             <footer className="blockquote-footer">
               <cite title="Source Title">
-Team Techspardha
+              Team Techspardha
               </cite>
             </footer>
           </blockquote>
@@ -56,6 +64,8 @@ Team Techspardha
 
 const mapStateToProps = state => ({
   fact: state.facts,
+  onboard: state.user.onboard,
+  loggedIn: state.user.loggedIn,
 });
 
 

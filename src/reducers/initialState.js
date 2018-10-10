@@ -11,6 +11,8 @@ const initialState = {
   timeline: [],
   fact: '',
   videos: [],
+  timestamp: new Date(),
+  currentEvents: [],
 };
 
 export default initialState;
