@@ -5,8 +5,7 @@
 	margin-bottom: 20px;
 }
 #finder-page {
-    min-height: 100vh;
-    min-width: 100vw;
+	min-height: 100vh;
 	margin: 0px;
 }
 
@@ -15,15 +14,6 @@
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
-
-.finder-folder a{
-    color: black;
-}
-
-.finder-folder a:hover{
-    text-decoration: none;
-}
-
 .finder-folder:hover {
 	transform: scale(1.2);
 }
