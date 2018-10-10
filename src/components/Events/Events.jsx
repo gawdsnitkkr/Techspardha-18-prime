@@ -7,9 +7,8 @@ import './Events.css';
 const EventCard = (props) => {
   const { event } = props;
   return (
-    <div className="col-sm-4">
-      <div className="card">
-        <div className="card-header">
+    <div className="card">
+      <div className="card-header">
           <h3 className="card-title">
             {event.eventName}
           </h3>
@@ -42,7 +41,7 @@ const EventCard = (props) => {
             </div>
           </div>
         </div>
-        <div className="card-body">
+      <div className="card-body">
           <h5>
           About
           </h5>
@@ -88,8 +87,8 @@ const EventCard = (props) => {
           Register
           </a>
         </div>
-      </div>
     </div>
+
   );
 };
 
@@ -121,7 +120,7 @@ class Events extends React.Component {
         <div className="row">
           {
             events.map(e => (
-              <div key={e.eventName}>
+              <div key={e.eventName} className="col-sm-4">
                 <EventCard event={e} />
               </div>
             ))
