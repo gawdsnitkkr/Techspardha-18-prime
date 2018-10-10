@@ -53,7 +53,7 @@ const events = (state = initialState.events, action) => {
 const categories = (state = initialState.categories, action) => {
   switch (action.type) {
     case 'CATEGORIES_FETCH_SUCCESS':
-      return action.data.data;
+      return action.data.data.categories;
 
     case 'CATEGORIES_FETCH_FAILURE':
       // TODO:= show alert here to try again
@@ -79,7 +79,6 @@ const timeline = (state = initialState.timeline, action) => {
 };
 
 const facts = (state = initialState.fact, action) => {
-  console.log(action);
   switch (action.type) {
     case 'FETCH_FACTS_SUCCESS':
       return action.data.data.message;

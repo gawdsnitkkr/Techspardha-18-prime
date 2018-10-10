@@ -5,15 +5,15 @@ import $ from 'jquery';
 import './Finder.css';
 import actions from '../../actions';
 
-const Folder = () => {
-  console.log('folder');
+const Folder = (props) => {
+  const { category } = props;
   return (
     <li className="nav-item finder-folder">
-      <Link to="/events" className="category-link">
-        <img src="/images/folder.png" />
+      <Link to={`/events/${category}`} className="category-link">
+        <img src="/images/folder.png" alt="folder icon" />
         <span>
           <p>
-Category 1
+            {category}
           </p>
         </span>
       </Link>
@@ -27,41 +27,50 @@ class Finder extends Component {
       $('.Finder').fadeToggle(200);
     });
 
-    const { getEvents } = this.props;
-    getEvents();
+    const { getCategories } = this.props;
+    getCategories();
   }
 
-  render = () => (
-    <div className="jumbotron" id="finder-page">
-      <h1 className="display-4 text-center">
-Categories
-      </h1>
-      <div className="form-group">
-        <center>
-          <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" />
-        </center>
+  render = () => {
+    const { categories } = this.props;
+    return (
+      <div className="jumbotron" id="finder-page">
+        <h1 className="display-4 text-center">
+      Categories
+        </h1>
+        <div className="form-group">
+          <center>
+            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" />
+          </center>
+        </div>
+        <hr className="my-4" />
+
+        <div className="container text-center">
+          <ul className="nav justify-content-center">
+            {
+              categories.map(c => (
+                <div key={c}>
+                  <Folder category={c} />
+                </div>
+              ))
+            }
+          </ul>
+        </div>
       </div>
-      <hr className="my-4" />
-
-      <div className="container text-center">
-        <ul className="nav justify-content-center">
-          <Folder />
-        </ul>
-      </div>
-    </div>
 
 
-  );
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-  events: state.events,
+  categories: state.categories,
 });
 
 
 const mapDispatchToProps = dispatch => ({
-  getEvents: () => {
-    dispatch(actions.getEvents());
+  getCategories: () => {
+    dispatch(actions.getCategories());
   },
 });
 
