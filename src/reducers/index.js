@@ -38,10 +38,10 @@ const user = (state = initialState.user, action) => {
 
 const events = (state = initialState.events, action) => {
   switch (action.type) {
-    case 'EVENTS_FETCH_SUCCESS':
-      return action.data.data;
+    case 'CATEGORY_EVENTS_SUCCESS':
+      return action.data.data.events;
 
-    case 'EVENTS_FETCH_FAILURE':
+    case 'CATEGORY_EVENTS_FAILURE':
       // TODO:= show alert here to try again
       return state;
 
