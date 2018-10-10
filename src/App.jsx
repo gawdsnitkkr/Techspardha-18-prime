@@ -16,7 +16,7 @@ const App = () => (
       <div className="App">
         <Route path="/onBoarding" component={OnBoarding} />
         <LoggedIn exact path="/" component={Desktop} />
-        <LoggedIn path="/events" component={Events} />
+        <LoggedIn path="/events/:category" component={Events} />
         <LoggedIn path="/guestLectures" component={Guests} />
         <LoggedIn path="/contactUs" component={Contact} />
         <LoggedIn path="/aboutUs" component={AboutUs} />
