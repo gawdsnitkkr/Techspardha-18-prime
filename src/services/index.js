@@ -57,7 +57,7 @@ const categories = () => {
     },
   };
   reqOptions.method = 'GET';
-  return fetch(`${config.api.url}/categories`, reqOptions)
+  return fetch(`${config.api.url}/events/categories`, reqOptions)
     .then(response => response.json())
     .then(categories => categories);
 };
