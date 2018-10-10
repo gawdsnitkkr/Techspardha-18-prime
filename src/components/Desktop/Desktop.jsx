@@ -2,6 +2,7 @@ import React from 'react';
 import './Desktop.css';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import Login from '../Login/login';
 
 class Desktop extends React.Component {
   componentDidMount = () => {
@@ -31,6 +32,7 @@ Come join us this October
               <button type="button" className="btn btn-danger">
 Sign in
               </button>
+              <Login />
             </div>
           </div>
 

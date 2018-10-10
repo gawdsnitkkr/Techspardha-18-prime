@@ -6,13 +6,13 @@ const jwtDecode = require('jwt-decode');
 const login = (accessToken) => {
   const reqOptions = {
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
   };
   reqOptions.body = JSON.stringify({ accessToken });
   reqOptions.method = 'POST';
-  return fetch(`${config.api.url}/googleLogin`, reqOptions)
+  return fetch(`${config.api.url}/login`, reqOptions)
     .then(response => response.json())
     .then((user) => {
       if (user && user.token) {
