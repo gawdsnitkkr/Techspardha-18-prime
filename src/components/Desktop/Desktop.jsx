@@ -29,9 +29,6 @@ Come join us this October
 
           <div className="row justify-content-md-center">
             <div className="col-sm-4">
-              <button type="button" className="btn btn-danger">
-Sign in
-              </button>
               <Login />
             </div>
           </div>
