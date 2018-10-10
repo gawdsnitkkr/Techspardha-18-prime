@@ -170,6 +170,19 @@ const timestamp = () => {
     .then(timestamp => timestamp);
 };
 
+const getEventsByCategory = (categoryName) => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/events/description?eventCategory=${categoryName}`, reqOptions)
+    .then(response => response.json())
+    .then(events => events);
+};
+
 export default {
   login,
   signup,
@@ -183,4 +196,5 @@ export default {
   getVideos,
   query,
   timestamp,
+  getEventsByCategory,
 };

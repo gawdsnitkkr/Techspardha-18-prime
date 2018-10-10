@@ -133,7 +133,7 @@ const getVideos = () => (dispatch) => {
 const getTimestamp = () => (dispatch) => {
   services.timestamp().then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('TIMESTAMP_SUCCESS', data));
       } else {
         dispatch(success('TIMESTAMP_FAILURE', data));
@@ -145,10 +145,22 @@ const getTimestamp = () => (dispatch) => {
 const createQuery = formData => (dispatch) => {
   services.query(formData).then(
     (data) => {
-      if (!data.success) {
+      if (data.success) {
         dispatch(failure('QUERY_CREATED_SUCCESS', data));
       } else {
         dispatch(success('QUERY_CREATED_FAILURE', data));
+      }
+    },
+  );
+};
+
+const getEventsByCategory = categoryName => (dispatch) => {
+  services.getEventsByCategory(categoryName).then(
+    (data) => {
+      if (data.success) {
+        dispatch(failure('CATEGORY_EVENTS_SUCCESS', data));
+      } else {
+        dispatch(success('CATEGORY_EVENTS_FAILURE', data));
       }
     },
   );
@@ -167,4 +179,5 @@ export default {
   getVideos,
   createQuery,
   getTimestamp,
+  getEventsByCategory,
 };
