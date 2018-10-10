@@ -9,7 +9,7 @@ const Folder = (props) => {
   const { category } = props;
   return (
     <li className="nav-item finder-folder">
-      <Link to={`/events/${category}`} className="category-link">
+      <Link to={`/events/${category}`} className="category-link" style={{ textTransform: 'capitalize' }}>
         <img src="/images/folder.png" alt="folder icon" />
         <span>
           <p>
