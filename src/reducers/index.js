@@ -6,6 +6,7 @@ const jwtDecode = require('jwt-decode');
 const user = (state = initialState.user, action) => {
   switch (action.type) {
     case 'SUCCESS_LOGIN':
+      localStorage.setItem('token', action.data.data.token);
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
         loggedIn: true,
@@ -13,6 +14,8 @@ const user = (state = initialState.user, action) => {
       });
 
     case 'SIGNUP_REQUIRED':
+      console.log(action.data.data.token);
+      localStorage.setItem('token', action.data.data.token);
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
         loggedIn: true,
@@ -21,6 +24,7 @@ const user = (state = initialState.user, action) => {
 
     case 'ONBOARD_SUCCESS':
     // Todo:= check the schema of the jwt
+      localStorage.setItem('token', action.data.data.token);
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
         loggedIn: true,
@@ -42,6 +46,21 @@ const events = (state = initialState.events, action) => {
       return action.data.data.events;
 
     case 'CATEGORY_EVENTS_FAILURE':
+      // TODO:= show alert here to try again
+      return state;
+
+    default:
+      return state;
+  }
+};
+
+const currentEvents = (state = initialState.currentEvents, action) => {
+  console.log(action);
+  switch (action.type) {
+    case 'FETCH_CURRENT_EVENTS_SUCCESS':
+      return action.data.data.events;
+
+    case 'FETCH_CURRENT_EVENTS_FAILURE':
       // TODO:= show alert here to try again
       return state;
 
@@ -92,6 +111,20 @@ const facts = (state = initialState.fact, action) => {
   }
 };
 
+const timestamp = (state = initialState.timestamp, action) => {
+  switch (action.type) {
+    case 'TIMESTAMP_SUCCESS':
+      return action.data.data.timestamp;
+
+    case 'TIMESTAMP_FAILURE':
+      // TODO:= show alert here to try again
+      return state;
+
+    default:
+      return state;
+  }
+};
+
 const videos = (state = initialState.videos, action) => {
   switch (action.type) {
     case 'FETCH_VIDEOS_SUCCESS':
@@ -113,6 +146,8 @@ const rootReducer = combineReducers({
   timeline,
   facts,
   videos,
+  timestamp,
+  currentEvents,
 });
 
 export default rootReducer;

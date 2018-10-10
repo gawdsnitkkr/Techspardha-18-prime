@@ -1,73 +1,125 @@
 import React from 'react';
 import './OnBoarding.css';
+import { connect } from 'react-redux';
+import actions from '../../actions';
 
-const OnBoarding = () => (
-  <div className="jumbotron" id="onBoarding-page">
-    <div className="text-center">
-      <img src="/images/startup.png" alt="img" />
-    </div>
-    <h1 className="display-4 text-center">
+
+class OnBoarding extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      year: '',
+      college: '',
+      phone: '',
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  omponentWillReceiveProps = (nextProps) => {
+    const { history } = this.props;
+    if (nextProps.loggedIn && nextProps.onboard) {
+      history.push('/');
+    }
+  };
+
+  onChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { signup } = this.props;
+    signup(this.state);
+    console.log(this.state);
+  };
+
+
+  render = () => {
+    console.log('sdf');
+    const {
+      year, college, phone,
+    } = this.state;
+    return (
+      <form className="jumbotron" id="onBoarding-page" onSubmit={this.handleSubmit}>
+        <div className="text-center">
+          <img src="/images/startup.png" alt="img" />
+        </div>
+        <h1 className="display-4 text-center">
       Welcome aboard
-    </h1>
-    <h1 className="text-center mb-5">
+        </h1>
+        <h1 className="text-center mb-5">
     Techspardha18 Prime
-    </h1>
-    <h5 className="text-center">
+        </h1>
+        <h5 className="text-center">
     To continue we need a few more details about you...
-    </h5>
-    <div className="container text-center">
-      <hr className="my-4" />
+        </h5>
+        <div className="container text-center">
+          <hr className="my-4" />
 
-      <div className="row justify-content-md-center">
-        <div className="col-sm-3">
-          <div className="form-group">
-            <input type="text" className="form-control" id="user-college" aria-describedby="collegeName" placeholder="College name" />
-            <label htmlFor="user-college">
+          <div className="row justify-content-md-center">
+            <div className="col-sm-3">
+              <div className="form-group">
+                <input type="text" name="college" className="form-control" id="user-college" value={college} aria-describedby="collegeName" placeholder="College name" onChange={this.onChange} required />
+                <label htmlFor="user-college">
             Your college
-            </label>
-          </div>
-        </div>
-        <div className="col-sm-3">
-          <div className="form-group">
-            <input type="number" className="form-control" id="user-mobile" aria-describedby="collegeName" placeholder="Mobile Number" />
-            <label htmlFor="user-mobile">
+                </label>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="form-group">
+                <input type="number" name="phone" value={phone} onChange={this.onChange} required className="form-control" id="user-mobile" aria-describedby="collegeName" placeholder="Mobile Number" />
+                <label htmlFor="user-mobile">
             Mobile Number
-            </label>
-          </div>
-        </div>
-        <div className="col-sm-3">
-          <select className="form-control" id="user-year">
-            <option>
+                </label>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <select className="form-control" id="user-year" name="year" value={year} onChange={this.onChange} required>
+                <option value="First">
             First
-            </option>
-            <option>
+                </option>
+                <option value="Second">
             Second
-            </option>
-            <option>
+                </option>
+                <option value="Third">
             Third
-            </option>
-            <option>
+                </option>
+                <option value="Fourth">
             Fourth
-            </option>
-          </select>
-          <label htmlFor="user-year">
+                </option>
+              </select>
+              <label htmlFor="user-year">
           Your year
-          </label>
-        </div>
-      </div>
+              </label>
+            </div>
+          </div>
 
-      <div className="row justify-content-md-center">
-        <div className="col-sm-4">
-          <button type="button" className="btn btn-danger">
+          <div className="row justify-content-md-center">
+            <div className="col-sm-4">
+              <button type="submit" className="btn btn-danger">
           Continue
-          </button>
+              </button>
+            </div>
+          </div>
+
+          <hr className="my-4" />
         </div>
-      </div>
 
-      <hr className="my-4" />
-    </div>
+      </form>
+    );
+  }
+}
 
-  </div>
-);
+const mapStateToProps = state => ({
+  onboard: state.user.onboard,
+  loggedIn: state.user.loggedIn,
+});
 
-export default OnBoarding;
+const mapDispatchToProps = dispatch => ({
+  signup: (data) => {
+    dispatch(actions.signup(data));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(OnBoarding);

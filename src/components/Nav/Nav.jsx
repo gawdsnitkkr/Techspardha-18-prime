@@ -4,20 +4,42 @@ import { connect } from 'react-redux';
 import $ from 'jquery';
 import Finder from '../Finder/Finder';
 import './Nav.css';
+import actions from '../../actions';
+
+const jwtDecode = require('jwt-decode');
 
 
-const DropDown = () => {
-  console.log('sdf');
+const Event = (props) => {
+  const { event } = props;
+  console.log(event);
+  return (
+    <li>
+      <h6>
+        <a href="#event1">
+          {event.eventDetails.eventName}
+        </a>
+      </h6>
+      <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam
+      </p>
+    </li>
+  );
+};
+
+const DropDown = (props) => {
+  const { user } = props;
   return (
     <div className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            John Appleseed
+        {user.name}
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
         <Link className="dropdown-item" to="/user">
               My Profile
         </Link>
-        <a className="dropdown-item" href="#userLogout">
+        <a className="dropdown-item" href="#userLogout" onClick={(e) => { e.preventDefault(); localStorage.clear(); }}>
               Log Out
         </a>
       </div>
@@ -30,10 +52,13 @@ class Nav extends React.Component {
     $('#navbar-finder-button').click(() => {
       $('.Finder').fadeToggle(200);
     });
+
+    const { getCurrentEvents } = this.props;
+    getCurrentEvents();
   }
 
   render() {
-    const { loggedIn, onboard } = this.props;
+    const { loggedIn, onboard, currentEvents } = this.props;
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
@@ -58,42 +83,13 @@ class Nav extends React.Component {
                 </small>
               </h2>
               <ul>
-                <li>
-                  <h6>
-                    <a href="#event1">
-                    Event 1
-                    </a>
-                  </h6>
-                  <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                  </p>
-                </li>
-                <li>
-                  <h6>
-                    <a href="#event2">
-                    Event 1
-                    </a>
-                  </h6>
-                  <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                  </p>
-                </li>
-                <li>
-                  <h6>
-                    <a href="#event3">
-                    Event 1
-                    </a>
-                  </h6>
-                  <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                  </p>
-                </li>
+                {
+                  currentEvents.map(e => (
+                    <div key={e.eventDetails.eventName}>
+                      <Event event={e} />
+                    </div>
+                  ))
+                }
               </ul>
               <a href="#fullTimeline">
               See full timeline
@@ -101,7 +97,7 @@ class Nav extends React.Component {
             </div>
           </div>
           {
-            (loggedIn && onboard) ? <DropDown /> : <div />
+            ((loggedIn && onboard) || (localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) ? <DropDown user={jwtDecode(localStorage.getItem('token'))} /> : <div />
           }
         </nav>
         <div className="Finder">
@@ -116,6 +112,13 @@ class Nav extends React.Component {
 const mapStateToProps = state => ({
   onboard: state.user.onboard,
   loggedIn: state.user.loggedIn,
+  currentEvents: state.currentEvents,
 });
 
-export default connect(mapStateToProps)(Nav);
+const mapDispatchToProps = dispatch => ({
+  getCurrentEvents: () => {
+    dispatch(actions.getTimestamp());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);

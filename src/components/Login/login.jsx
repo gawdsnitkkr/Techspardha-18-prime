@@ -14,7 +14,7 @@ class Login extends React.Component {
     const { history } = this.props;
     if (nextProps.loggedin && nextProps.onboard) {
       // history.push('/dashboard');
-    } else if (nextProps.loggedin && !nextProps.onboard) {
+    } else if (nextProps.loggedIn && !nextProps.onboard) {
       history.push('/onBoarding');
     }
   };

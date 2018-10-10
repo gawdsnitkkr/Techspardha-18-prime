@@ -3,14 +3,14 @@ import config from '../config';
 
 const jwtDecode = require('jwt-decode');
 
-const login = (accessToken) => {
+const login = (idToken) => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify({ accessToken });
+  reqOptions.body = JSON.stringify({ idToken });
   reqOptions.method = 'POST';
   return fetch(`${config.api.url}/login`, reqOptions)
     .then(response => response.json())
@@ -29,9 +29,10 @@ const signup = (data) => {
       'Content-Type': 'application/json',
     },
   };
+  reqOptions.headers.Authorization = localStorage.getItem('token');
   reqOptions.body = JSON.stringify(data);
   reqOptions.method = 'PUT';
-  return fetch(`${config.api.url}/signUp`, reqOptions)
+  return fetch(`${config.api.url}/user`, reqOptions)
     .then(response => response.json())
     .then(user => user);
 };
@@ -183,6 +184,19 @@ const getEventsByCategory = (categoryName) => {
     .then(events => events);
 };
 
+const getCurrentEvents = (timestamp) => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/timestamp/events?timestamp=${timestamp}`, reqOptions)
+    .then(response => response.json())
+    .then(events => events);
+};
+
 export default {
   login,
   signup,
@@ -197,4 +211,5 @@ export default {
   query,
   timestamp,
   getEventsByCategory,
+  getCurrentEvents,
 };

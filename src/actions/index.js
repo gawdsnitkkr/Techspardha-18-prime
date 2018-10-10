@@ -10,8 +10,8 @@ const failure = (type, data) => ({
   data,
 });
 
-const login = (token, provider) => (dispatch) => {
-  services.login(token, provider).then(
+const login = token => (dispatch) => {
+  services.login(token).then(
     (data) => {
       if (data.success && !data.onBoard) {
         dispatch(failure('SIGNUP_REQUIRED', data));
@@ -21,6 +21,7 @@ const login = (token, provider) => (dispatch) => {
     },
   );
 };
+
 
 const signup = formData => (dispatch) => {
   services.signup(formData).then(
@@ -122,9 +123,22 @@ const getVideos = () => (dispatch) => {
   services.getVideos().then(
     (data) => {
       if (!data.success) {
-        dispatch(failure('FETCH_VIDEOS_SUCCESS', data));
+        dispatch(success('FETCH_VIDEOS_SUCCESS', data));
       } else {
-        dispatch(success('FETCH_VIDEOS_FAILURE', data));
+        dispatch(failure('FETCH_VIDEOS_FAILURE', data));
+      }
+    },
+  );
+};
+
+const getCurrentEvents = timestamp => (dispatch) => {
+  console.log('getting');
+  services.getCurrentEvents(timestamp).then(
+    (data) => {
+      if (data.success) {
+        dispatch(success('FETCH_CURRENT_EVENTS_SUCCESS', data));
+      } else {
+        dispatch(failure('FETCH_CURRENT_EVENTS_FAILURE', data));
       }
     },
   );
@@ -133,11 +147,8 @@ const getVideos = () => (dispatch) => {
 const getTimestamp = () => (dispatch) => {
   services.timestamp().then(
     (data) => {
-      if (data.success) {
-        dispatch(failure('TIMESTAMP_SUCCESS', data));
-      } else {
-        dispatch(success('TIMESTAMP_FAILURE', data));
-      }
+      dispatch(getCurrentEvents(data.timestamp));
+      dispatch(success('TIMESTAMP_SUCCESS', data));
     },
   );
 };
