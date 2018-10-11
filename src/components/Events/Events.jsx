@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../actions';
+import SweetAlert from '../SweetAlert';
 import './Events.css';
 
 const jwtDecode = require('jwt-decode');
@@ -10,7 +11,7 @@ const checkUser = (registerEvent, eventCategory, eventName, history) => {
   if ((localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) {
     registerEvent(eventCategory, eventName);
   } else {
-    alert('Login first');
+    SweetAlert('Please Login to Register for an event', 'error');
     history.push('/');
   }
 };

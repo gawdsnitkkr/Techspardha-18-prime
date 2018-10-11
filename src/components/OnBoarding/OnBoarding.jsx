@@ -16,7 +16,7 @@ class OnBoarding extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  omponentWillReceiveProps = (nextProps) => {
+  componentWillReceiveProps = (nextProps) => {
     const { history } = this.props;
     if (nextProps.loggedIn && nextProps.onboard) {
       history.push('/');

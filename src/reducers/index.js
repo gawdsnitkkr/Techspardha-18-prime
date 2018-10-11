@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import initialState from './initialState';
+import SweetAlert from '../components/SweetAlert';
 
 const jwtDecode = require('jwt-decode');
 
@@ -33,6 +34,7 @@ const user = (state = initialState.user, action) => {
 
     case 'ONBOARD_FAILURE':
       // TODO:= show alert here to try again and reset the form
+      SweetAlert('Try Again', 'error');
       return state;
 
     case 'USER_REGISTERED_EVENTS_SUCCESS':
@@ -43,6 +45,7 @@ const user = (state = initialState.user, action) => {
 
     case 'USER_REGISTERED_EVENTS_FAILURE':
       // TODO:= show alert here
+      SweetAlert('Please Try to Register Agian', 'error');
       return Object.assign({}, state, {
         registeredEvents: [],
       });
@@ -59,6 +62,7 @@ const events = (state = initialState.events, action) => {
 
     case 'CATEGORY_EVENTS_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Please Try Again', 'error');
       return state;
 
     default:
@@ -74,6 +78,7 @@ const currentEvents = (state = initialState.currentEvents, action) => {
 
     case 'FETCH_CURRENT_EVENTS_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Unable to Fetch Current Events. You Can Try Again', 'error');
       return state;
 
     default:
@@ -88,6 +93,7 @@ const categories = (state = initialState.categories, action) => {
 
     case 'CATEGORIES_FETCH_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Unable to Fetch Categories. You can Try Again', 'error');
       return state;
 
     default:
@@ -102,6 +108,7 @@ const timeline = (state = initialState.timeline, action) => {
 
     case 'TIMELINE_FETCH_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Unable to Fetch Timeline. You can Try Again', 'error');
       return state;
 
     default:
@@ -116,6 +123,7 @@ const facts = (state = initialState.fact, action) => {
 
     case 'FETCH_FACTS_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Unable to Fetch Facts. Try Again by Reloading the Page', 'error');
       return state;
 
     default:
@@ -130,6 +138,7 @@ const timestamp = (state = initialState.timestamp, action) => {
 
     case 'TIMESTAMP_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Some Error Occured. Try Again', 'error');
       return state;
 
     default:
@@ -144,6 +153,7 @@ const videos = (state = initialState.videos, action) => {
 
     case 'FETCH_VIDEOS_FAILURE':
       // TODO:= show alert here to try again
+      SweetAlert('Unable to Fetch the Video. Try Again', 'error');
       return state;
 
     default:
