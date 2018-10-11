@@ -15,8 +15,10 @@ const login = token => (dispatch) => {
     (data) => {
       if (data.success && !data.onBoard) {
         dispatch(failure('SIGNUP_REQUIRED', data));
-      } else {
+      } else if (data.success && data.onBoard) {
         dispatch(success('SUCCESS_LOGIN', data));
+      } else {
+        console.log(data);
       }
     },
   );
