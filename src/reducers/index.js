@@ -45,7 +45,6 @@ const user = (state = initialState.user, action) => {
 
     case 'USER_REGISTERED_EVENTS_FAILURE':
       // TODO:= show alert here
-      SweetAlert('Please Try to Register Agian', 'error');
       return Object.assign({}, state, {
         registeredEvents: [],
       });

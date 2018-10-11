@@ -128,6 +128,10 @@ class Events extends React.Component {
     getRegisteredEvents();
   }
 
+  componentDidUpdate() {
+    this.props.getEventsByCategory(this.props.match.params.category);
+  }
+
   render = () => {
     const {
       events, match, registerEvent, registeredEvents, history,
