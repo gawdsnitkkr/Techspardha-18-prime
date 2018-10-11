@@ -33,6 +33,7 @@ class Desktop extends React.Component {
             <div className="col-sm-4">
               {((loggedIn && onboard) || (localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) ? (
                 <div>
+                  <img src={jwtDecode(localStorage.getItem('token')).picture} id="back-btn" alt="img" />
                 Hi
                   {' '}
                   {jwtDecode(localStorage.getItem('token')).name}

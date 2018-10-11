@@ -4,9 +4,22 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 import './Events.css';
 
+const jwtDecode = require('jwt-decode');
+
+const checkUser = (registerEvent, eventCategory, eventName, history) => {
+  if ((localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) {
+    registerEvent(eventCategory, eventName);
+  } else {
+    alert('Login first');
+    history.push('/');
+  }
+};
+
 const EventCard = (props) => {
-  const { event, registerEvent, registeredEvents } = props;
-  console.log(registeredEvents);
+  const {
+    event, registerEvent, registeredEvents, history,
+  } = props;
+  console.log(props);
   return (
     <div className="card">
       <div className="card-header">
@@ -90,7 +103,13 @@ const EventCard = (props) => {
               Registerd
             </button>
           ) : (
-            <button type="button" className="btn btn-primary" onClick={(e) => { e.preventDefault(); registerEvent(event.eventCategory, event.eventName); }}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.preventDefault(); checkUser(registerEvent, event.eventCategory, event.eventName, history);
+              }}
+            >
               Register
             </button>
           )
@@ -110,7 +129,7 @@ class Events extends React.Component {
 
   render = () => {
     const {
-      events, match, registerEvent, registeredEvents,
+      events, match, registerEvent, registeredEvents, history,
     } = this.props;
     console.log(events, 'lol');
     return (
@@ -133,7 +152,7 @@ class Events extends React.Component {
           {
             events.map(e => (
               <div key={e.eventName} className="col-sm-4">
-                <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} />
+                <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
               </div>
             ))
           }

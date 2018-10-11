@@ -21,9 +21,11 @@ const Event = (props) => {
               Some quick example text to build on the card title and
               make up the bulk of the card's content.
           </p>
-          <a href="#" className="btn btn-primary">
+          <Link to={`events/${event.eventCategory}`}>
+            <button type="button" className="btn btn-primary">
               View event
-          </a>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
