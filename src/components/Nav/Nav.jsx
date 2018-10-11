@@ -62,6 +62,7 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       time: new Date().toLocaleTimeString(),
+      date: new Date().toDateString(),
     };
   }
 
@@ -86,12 +87,14 @@ class Nav extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     this.setState({
       time: new Date(nextProps.timestamp).toLocaleTimeString(),
+      date: new Date(nextProps.timestamp).toDateString(),
     });
   }
 
   tick() {
     this.setState({
       time: new Date().toLocaleTimeString(),
+      date: new Date().toDateString(),
     });
   }
 
@@ -99,7 +102,7 @@ class Nav extends React.Component {
     const {
       loggedIn, onboard, currentEvents, timestamp,
     } = this.props;
-    const { time } = this.state;
+    const { time, date } = this.state;
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
@@ -112,7 +115,7 @@ class Nav extends React.Component {
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
               <h2>
-                {new Date(timestamp).toDateString()}
+                {date}
               </h2>
               <h2>
                 {/* 10:00
