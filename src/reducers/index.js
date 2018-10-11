@@ -35,6 +35,18 @@ const user = (state = initialState.user, action) => {
       // TODO:= show alert here to try again and reset the form
       return state;
 
+    case 'USER_REGISTERED_EVENTS_SUCCESS':
+      console.log(action.data.data.events);
+      return Object.assign({}, state, {
+        registeredEvents: action.data.data.events,
+      });
+
+    case 'USER_REGISTERED_EVENTS_FAILURE':
+      // TODO:= show alert here
+      return Object.assign({}, state, {
+        registeredEvents: [],
+      });
+
     default:
       return state;
   }
@@ -114,7 +126,7 @@ const facts = (state = initialState.fact, action) => {
 const timestamp = (state = initialState.timestamp, action) => {
   switch (action.type) {
     case 'TIMESTAMP_SUCCESS':
-      return action.data.data.timestamp;
+      return action.data.timestamp;
 
     case 'TIMESTAMP_FAILURE':
       // TODO:= show alert here to try again
