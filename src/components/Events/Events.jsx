@@ -122,6 +122,11 @@ const EventCard = (props) => {
 };
 
 class Events extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { url: this.props.match.params.category };
+  }
+
   componentDidMount = () => {
     const { getEventsByCategory, match, getRegisteredEvents } = this.props;
     getEventsByCategory(match.params.category);
@@ -129,7 +134,10 @@ class Events extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.getEventsByCategory(this.props.match.params.category);
+    if (this.state.url != this.props.match.params.category) {
+      this.setState({ url: this.props.match.params.category });
+      this.props.getEventsByCategory(this.props.match.params.category);
+    }
   }
 
   render = () => {
