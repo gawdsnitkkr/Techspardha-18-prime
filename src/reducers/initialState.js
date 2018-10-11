@@ -11,7 +11,7 @@ const initialState = {
   timeline: [],
   fact: '',
   videos: [],
-  timestamp: new Date(),
+  timestamp: new Date().getTime(),
   currentEvents: [],
 };
 

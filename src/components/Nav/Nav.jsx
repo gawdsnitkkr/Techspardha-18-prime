@@ -58,17 +58,48 @@ const DropDown = (props) => {
 };
 
 class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: new Date().toLocaleTimeString(),
+    };
+  }
+
   componentDidMount() {
     $('#navbar-finder-button').click(() => {
       $('.Finder').fadeToggle(200);
     });
 
+    this.intervalID = setInterval(
+      () => this.tick(),
+      1000,
+    );
+
     const { getCurrentEvents } = this.props;
     getCurrentEvents();
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      time: new Date(nextProps.timestamp).toLocaleTimeString(),
+    });
+  }
+
+  tick() {
+    this.setState({
+      time: new Date().toLocaleTimeString(),
+    });
+  }
+
   render() {
-    const { loggedIn, onboard, currentEvents } = this.props;
+    const {
+      loggedIn, onboard, currentEvents, timestamp,
+    } = this.props;
+    const { time } = this.state;
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
@@ -81,16 +112,14 @@ class Nav extends React.Component {
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
               <h2>
-	             October 26, 2018
+                {new Date(timestamp).toDateString()}
               </h2>
-              <h5>
-              Friday
-              </h5>
               <h2>
-              10:00
+                {/* 10:00
                 <small>
                 AM
-                </small>
+                </small> */}
+                {time}
               </h2>
               <ul>
                 {
@@ -123,6 +152,7 @@ const mapStateToProps = state => ({
   onboard: state.user.onboard,
   loggedIn: state.user.loggedIn,
   currentEvents: state.currentEvents,
+  timestamp: state.timestamp,
 });
 
 const mapDispatchToProps = dispatch => ({
