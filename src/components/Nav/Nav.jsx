@@ -49,7 +49,7 @@ const DropDown = (props) => {
         <Link className="dropdown-item" to="/user">
               My Profile
         </Link>
-        <a className="dropdown-item" href="#userLogout" onClick={(e) => { e.preventDefault(); localStorage.clear(); }}>
+        <a className="dropdown-item" href="#userLogout" onClick={(e) => { e.preventDefault(); localStorage.clear(); window.location.reload(); }}>
               Log Out
         </a>
       </div>
