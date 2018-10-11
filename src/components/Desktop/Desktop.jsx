@@ -12,6 +12,12 @@ class Desktop extends React.Component {
     getFact();
   }
 
+  componentDidUpdate() {
+    if (this.props.loggedIn && !this.props.onboard) {
+      this.props.history.push('/onBoarding');
+    }
+  }
+
   render = () => {
     const { fact, loggedIn, onboard } = this.props;
 
