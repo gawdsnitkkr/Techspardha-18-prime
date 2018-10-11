@@ -102,9 +102,10 @@ const registerEvent = formData => (dispatch) => {
   services.registerEvent(formData).then(
     (data) => {
       if (data.success) {
-        dispatch(failure('EVENT_REGISTERED_SUCCESS', data));
+        dispatch(success('EVENT_REGISTERED_SUCCESS', data));
+        dispatch(getRegisteredEvents());
       } else {
-        dispatch(success('EVENT_REGISTERED_FAILURE', data));
+        dispatch(failure('EVENT_REGISTERED_FAILURE', data));
       }
     },
   );
