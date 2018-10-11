@@ -1,4 +1,5 @@
 import services from '../services';
+import SweetAlert from '../components/SweetAlert';
 
 const success = (type, data) => ({
   type,
@@ -103,6 +104,7 @@ const registerEvent = formData => (dispatch) => {
     (data) => {
       if (data.success) {
         dispatch(success('EVENT_REGISTERED_SUCCESS', data));
+        SweetAlert('Registered SuccessFully', 'success');
         dispatch(getRegisteredEvents());
       } else {
         dispatch(failure('EVENT_REGISTERED_FAILURE', data));
