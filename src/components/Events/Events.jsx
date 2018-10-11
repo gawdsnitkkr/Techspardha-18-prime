@@ -5,7 +5,8 @@ import actions from '../../actions';
 import './Events.css';
 
 const EventCard = (props) => {
-  const { event } = props;
+  const { event, registerEvent, registeredEvents } = props;
+  console.log(registeredEvents);
   return (
     <div className="card">
       <div className="card-header">
@@ -83,9 +84,17 @@ const EventCard = (props) => {
             </li>
           </ul>
         </p>
-        <a href="#" className="btn btn-primary">
-          Register
-        </a>
+        {
+          registeredEvents.find(x => x.eventName === event.eventName) ? (
+            <button type="button" className="btn btn-success disabled">
+              Registerd
+            </button>
+          ) : (
+            <button type="button" className="btn btn-primary" onClick={(e) => { e.preventDefault(); registerEvent(event.eventCategory, event.eventName); }}>
+              Register
+            </button>
+          )
+        }
       </div>
     </div>
 
@@ -94,12 +103,15 @@ const EventCard = (props) => {
 
 class Events extends React.Component {
   componentDidMount = () => {
-    const { getEventsByCategory, match } = this.props;
+    const { getEventsByCategory, match, getRegisteredEvents } = this.props;
     getEventsByCategory(match.params.category);
+    getRegisteredEvents();
   }
 
   render = () => {
-    const { events, match } = this.props;
+    const {
+      events, match, registerEvent, registeredEvents,
+    } = this.props;
     console.log(events, 'lol');
     return (
       <div className="jumbotron" id="events-page">
@@ -121,7 +133,7 @@ class Events extends React.Component {
           {
             events.map(e => (
               <div key={e.eventName} className="col-sm-4">
-                <EventCard event={e} />
+                <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} />
               </div>
             ))
           }
@@ -133,12 +145,19 @@ class Events extends React.Component {
 }
 const mapStateToProps = state => ({
   events: state.events,
+  registeredEvents: state.user.registeredEvents,
 });
 
 
 const mapDispatchToProps = dispatch => ({
   getEventsByCategory: (category) => {
     dispatch(actions.getEventsByCategory(category));
+  },
+  registerEvent: (eventCategory, eventName) => {
+    dispatch(actions.registerEvent({ eventCategory, eventName }));
+  },
+  getRegisteredEvents: () => {
+    dispatch(actions.getRegisteredEvents());
   },
 });
 

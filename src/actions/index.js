@@ -95,13 +95,14 @@ const getRegisteredEvents = () => (dispatch) => {
   );
 };
 
-const updateEvent = formData => (dispatch) => {
-  services.putEvents(formData).then(
+const registerEvent = formData => (dispatch) => {
+  console.log(formData);
+  services.registerEvent(formData).then(
     (data) => {
       if (data.success) {
-        dispatch(failure('EVENT_UPDATED_SUCCESS', data));
+        dispatch(failure('EVENT_REGISTERED_SUCCESS', data));
       } else {
-        dispatch(success('EVENT_UPDATED_FAILURE', data));
+        dispatch(success('EVENT_REGISTERED_FAILURE', data));
       }
     },
   );
@@ -184,7 +185,7 @@ export default {
   getTimeline,
   createEvent,
   getRegisteredEvents,
-  updateEvent,
+  registerEvent,
   getFacts,
   getVideos,
   createQuery,

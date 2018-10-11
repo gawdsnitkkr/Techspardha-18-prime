@@ -97,20 +97,21 @@ const registeredEvents = () => {
       'Content-Type': 'application/json',
     },
   };
-  reqOptions.body = JSON.stringify();
   reqOptions.method = 'GET';
+  reqOptions.headers.Authorization = localStorage.getItem('token');
   return fetch(`${config.api.url}/user/event`, reqOptions)
     .then(response => response.json())
     .then(events => events);
 };
 
-const putEvents = (data) => {
+const registerEvent = (data) => {
   const reqOptions = {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
+  reqOptions.headers.Authorization = localStorage.getItem('token');
   reqOptions.body = JSON.stringify(data);
   reqOptions.method = 'PUT';
   return fetch(`${config.api.url}/user/event`, reqOptions)
@@ -205,7 +206,7 @@ export default {
   timeline,
   postEvents,
   registeredEvents,
-  putEvents,
+  registerEvent,
   getFacts,
   getVideos,
   query,
