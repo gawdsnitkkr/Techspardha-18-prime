@@ -3,6 +3,7 @@ import { GoogleLogin } from 'react-google-login';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import actions from '../../actions';
+import SweetAlert from '../SweetAlert';
 
 class Login extends React.Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class Login extends React.Component {
 
   responseGoogle = (response) => {
     if (!response.tokenId) {
-      alert('try aganin');
-      // return;
+      SweetAlert('Login with Google Failed. Please try again', 'error');
     }
     const { login } = this.props;
     login(response.tokenId);
