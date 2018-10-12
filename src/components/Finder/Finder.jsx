@@ -10,9 +10,9 @@ const Folder = (props) => {
   return (
     <li className="nav-item finder-folder">
       <Link to={`/events/${category}`} className="category-link" style={{ textTransform: 'capitalize' }}>
-        <img src="/images/folder.png" alt="folder icon" />
+        <img src="/images/folder.png" alt="folder icon" className="finder-icon"/>
         <span>
-          <p>
+          <p className="finder-labels">
             {category}
           </p>
         </span>
@@ -35,8 +35,8 @@ class Finder extends Component {
     const { categories } = this.props;
     return (
       <div className="jumbotron" id="finder-page">
-        <h1 className="display-4 text-center">
-      Categories
+        <h1 className="display-4 text-center" id="finder-heading">
+          Categories
         </h1>
         <div className="form-group">
           <center>

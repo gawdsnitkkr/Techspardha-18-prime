@@ -1,9 +1,11 @@
 #aboutUs-page {
 	min-height: 100vh;
-	margin: 0px;
 	animation-name: fade-in;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+}
+body, html {
+    background: #e9ecef;
 }
 #back-btn {
 	margin-top: -10px;
@@ -31,4 +33,23 @@
     	opacity: 1;
     	transform: scale(1);
     }
+}
+
+@media only screen and (max-width: 576px) { 
+    #aboutUs-heading {
+        margin-top: 100px;
+        font-size: 2.5rem;
+    }
+    .credit-icons {
+    	width: 24px;
+    }
+    #back-btn {
+			margin-right: 20px !important;
+			width: 36px !important;
+			transition: all 0.2s ease;
+			cursor: pointer;
+		}
+		#aboutUs-page {
+			margin-bottom: 100px !important; 
+		}
 }

@@ -60,7 +60,6 @@ class Desktop extends React.Component {
               </cite>
             </footer>
           </blockquote>
-          <hr className="my-4" />
 
         </div>
       </div>
