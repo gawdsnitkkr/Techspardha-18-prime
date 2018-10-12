@@ -4,13 +4,19 @@
 	background: #f8f9fa !important;
 	padding: 20px;
 	transform: translate(-40%, 0);
+	animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
 }
 
 #userDropdown {
 	background: #f8f9fa !important;
 	border: 0px solid;
 	padding: 20px;
-	transform: translate(-50px, 0);
+	transform: translate(-10px, 0);
+	animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
 }
 
 #navbar-finder-button{
@@ -21,4 +27,14 @@
 	position: absolute;
 	z-index: 100;
 	display: none;
+}
+
+
+@keyframes fade-in {
+    from {
+    	opacity: 0;
+    }
+    to {
+    	opacity: 1;
+    }
 }

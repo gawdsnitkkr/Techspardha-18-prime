@@ -92,9 +92,7 @@ class Nav extends React.Component {
                   ))
                 }
               </ul>
-              <a href="#fullTimeline">
-              See full timeline
-              </a>
+              
             </div>
           </div>
           {

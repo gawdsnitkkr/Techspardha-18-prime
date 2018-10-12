@@ -18,8 +18,6 @@ const Event = (props) => {
           </h5>
           <p className="card-text">
             {event.description}
-              Some quick example text to build on the card title and
-              make up the bulk of the card's content.
           </p>
           <Link to={`events/${event.eventCategory}`}>
             <button type="button" className="btn btn-primary">
@@ -74,7 +72,7 @@ class User extends React.Component {
         <div className="container">
 
           <hr className="my-4" />
-          <img src={user.picture} id="back-btn" alt="img" />
+          <img src={user.picture} id="back-btn" alt="img"/>
           <h1 id="user-name">
             {user.name}
           </h1>
