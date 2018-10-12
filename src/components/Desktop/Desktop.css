@@ -1,9 +1,11 @@
 #desktop-page {
-	min-height: 100vh;
-	margin: 0px;
-	animation-name: fade-in;
+    min-height: 100vh;
+    animation-name: fade-in;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+}
+body, html {
+    background: #e9ecef;
 }
 #main-heading {
 	margin-top: 20px;
@@ -24,5 +26,25 @@
     to {
     	opacity: 1;
     	transform: scale(1);
+    }
+}
+
+@media only screen and (max-width: 576px) { 
+    #main-heading {
+        margin-top: 200px;
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .lead {
+        font-size: 1rem;
+        padding: 10px !important;
+    }
+    cite {
+        font-size: 1rem;
+    }
+    #desktop-page {
+        margin-bottom: 100px !important; 
     }
 }

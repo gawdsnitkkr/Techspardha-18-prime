@@ -8,7 +8,10 @@
 	position: fixed;
     min-height: 100vh;
     min-width: 100vw;
-	margin: 0px;
+}
+
+body, html {
+    background: #e9ecef;
 }
 
 .finder-folder {
@@ -27,4 +30,23 @@
 
 .finder-folder:hover {
 	transform: scale(1.2);
+}
+
+@media only screen and (max-width: 576px) { 
+    #searchBox {
+    	max-width: 100% !important;
+    }
+    #finder-heading {
+    	margin-top: 50px;
+      font-size: 2.5rem;
+    }
+    .finder-folder {
+    	width: 24px;
+    }
+    .finder-labels {
+    	font-size: 0.75rem !important;
+    }
+    .finder-icon {
+    	width: 48px;
+    }
 }

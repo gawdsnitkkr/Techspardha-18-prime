@@ -27,7 +27,7 @@ const EventCard = (props) => {
           {event.eventName}
         </h3>
         <div className="row">
-          <div className="col-sm-4 text-center">
+          <div className="col-4 text-center">
             <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
             <h6>
               {event.startTime}
@@ -37,7 +37,7 @@ const EventCard = (props) => {
               {event.endTime}
             </h6>
           </div>
-          <div className="col-sm-4 text-center">
+          <div className="col-4 text-center">
             <img src="/images/time.png" className="event-icons" alt="time-icon" />
             <h6>
               {event.startTime}
@@ -47,7 +47,7 @@ const EventCard = (props) => {
               {event.endTime}
             </h6>
           </div>
-          <div className="col-sm-4 text-center">
+          <div className="col-4 text-center">
             <img src="/images/location.png" className="event-icons" alt="date-icon" />
             <h6>
               {event.venue}
@@ -146,7 +146,7 @@ class Events extends React.Component {
     console.log(events, 'lol');
     return (
       <div className="jumbotron" id="events-page">
-        <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }}>
+        <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }} id="event-heading">
           <small>
             <a onClick={() => {history.goBack()}}>
               <img src="/images/back.png" id="back-btn" alt="go_back" />
