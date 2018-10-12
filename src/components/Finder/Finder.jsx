@@ -10,7 +10,7 @@ const Folder = (props) => {
   return (
     <li className="nav-item finder-folder">
       <Link to={`/events/${category}`} className="category-link" style={{ textTransform: 'capitalize' }}>
-        <img src="/images/folder.png" alt="folder icon" className="finder-icon"/>
+        <img src="/images/folder.png" alt="folder icon" className="finder-icon" />
         <span>
           <p className="finder-labels">
             {category}
@@ -22,6 +22,11 @@ const Folder = (props) => {
 };
 
 class Finder extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { searchFilter: '' };
+  }
+
   componentDidMount = () => {
     $('.category-link').click(() => {
       $('.Finder').fadeToggle(200);
@@ -40,7 +45,7 @@ class Finder extends Component {
         </h1>
         <div className="form-group">
           <center>
-            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" />
+            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" value={this.state.searchFilter} onChange={(e) => { this.setState({ searchFilter: e.target.value }); }} />
           </center>
         </div>
         <hr className="my-4" />
@@ -48,11 +53,17 @@ class Finder extends Component {
         <div className="container text-center">
           <ul className="nav justify-content-center">
             {
-              categories.map(c => (
-                <div key={c}>
-                  <Folder category={c} />
-                </div>
-              ))
+              categories.map((c) => {
+                const re = new RegExp(`^${this.state.searchFilter}`, 'i');
+                const str = c;
+                if (str.match(re)) {
+                  return (
+                    <div key={c}>
+                      <Folder category={c} />
+                    </div>
+                  );
+                }
+              })
             }
           </ul>
         </div>
