@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Sponsers.css';
-
 
 const Sponsor = (props) => {
   const { sponsor } = props;
@@ -33,8 +31,7 @@ const Section = (props) => {
   );
 };
 
-
-const Sponsers = () => {
+const Sponsers = (props) => {
   const SectionData = [
     {
       section: 'Title sponsor',
@@ -57,23 +54,24 @@ const Sponsers = () => {
     <div className="jumbotron" id="sponsors-page">
       <h1 className="display-4 text-center" id="sponsor-heading">
         <small>
-          <Link to="/">
+          <a
+            onClick={() => {
+              props.history.goBack();
+            }}
+          >
             <img src="/images/back.png" id="back-btn" alt="back button" />
-          </Link>
+          </a>
         </small>
-      Sponsors
+        Sponsors
       </h1>
       <div className="container text-center">
         <hr className="my-4" />
-        {
-          SectionData.map(s => (
-            <div key={s.section}>
-              <Section data={s} />
-            </div>
-          ))
-        }
+        {SectionData.map(s => (
+          <div key={s.section}>
+            <Section data={s} />
+          </div>
+        ))}
       </div>
-
     </div>
   );
 };

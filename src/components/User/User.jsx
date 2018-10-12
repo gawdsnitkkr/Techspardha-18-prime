@@ -62,9 +62,9 @@ class User extends React.Component {
       <div className="jumbotron" id="myProfile-page">
         <h1 className="display-4 text-center" id="contactUs-heading">
           <small>
-            <Link to="/">
+            <a onClick={() => {this.props.history.goBack()}}>
               <img src="/images/back.png" id="back-btn" alt="img" />
-            </Link>
+            </a>
           </small>
       My Profile
         </h1>

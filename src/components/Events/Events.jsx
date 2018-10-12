@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import actions from '../../actions';
 import SweetAlert from '../SweetAlert';
@@ -149,9 +148,9 @@ class Events extends React.Component {
       <div className="jumbotron" id="events-page">
         <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }}>
           <small>
-            <Link to="/">
+            <a onClick={() => {history.goBack()}}>
               <img src="/images/back.png" id="back-btn" alt="go_back" />
-            </Link>
+            </a>
           </small>
           {match.params.category}
         </h1>
