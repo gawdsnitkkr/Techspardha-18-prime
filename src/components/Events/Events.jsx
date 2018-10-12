@@ -123,7 +123,7 @@ const EventCard = (props) => {
 class Events extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: this.props.match.params.category };
+    this.state = { url: this.props.match.params.category, loading: true, searchFilter: '' };
   }
 
   componentDidMount = () => {
@@ -133,22 +133,36 @@ class Events extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.url != this.props.match.params.category) {
-      this.setState({ url: this.props.match.params.category });
-      this.props.getEventsByCategory(this.props.match.params.category);
+    const { loading, getEventsByCategory, match } = this.props;
+    const { url } = this.state;
+    if (url !== match.params.category) {
+      this.setState({ url: match.params.category });
+      getEventsByCategory(match.params.category);
+      loading(true);
     }
+  }
+
+  searchEnter = (e) => {
+    this.setState({ searchFilter: e.target.value });
   }
 
   render = () => {
     const {
-      events, match, registerEvent, registeredEvents, history,
+      events, match, registerEvent, registeredEvents, history, isLoading,
     } = this.props;
     console.log(events, 'lol');
-    return (
+    return isLoading ? (
+      <div style={{
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+      }}
+      >
+PLEASE WAIT... LOADING SOME SERIOUS BULLSHIT
+      </div>
+    ) : (
       <div className="jumbotron" id="events-page">
         <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }} id="event-heading">
           <small>
-            <a onClick={() => {history.goBack()}}>
+            <a onClick={() => { history.goBack(); }}>
               <img src="/images/back.png" id="back-btn" alt="go_back" />
             </a>
           </small>
@@ -156,39 +170,52 @@ class Events extends React.Component {
         </h1>
         <div className="form-group">
           <center>
-            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" />
+            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" onChange={this.searchEnter} value={this.state.searchFilter} />
           </center>
         </div>
 
         <div className="row">
           {
-            events.map(e => (
-              <div key={e.eventName} className="col-sm-4">
-                <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
-              </div>
-            ))
+            events.map((e) => {
+              const re = new RegExp(`^${this.state.searchFilter}`, 'i');
+              const str = e.eventName;
+              if (str.match(re)) {
+                return (
+                  <div key={e.eventName} className="col-sm-4">
+                    <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
+                  </div>
+                );
+              }
+            })
           }
         </div>
 
       </div>
+
     );
   }
 }
 const mapStateToProps = state => ({
   events: state.events,
   registeredEvents: state.user.registeredEvents,
+  isLoading: state.loading.isLoading,
 });
 
 
 const mapDispatchToProps = dispatch => ({
   getEventsByCategory: (category) => {
-    dispatch(actions.getEventsByCategory(category));
+    dispatch(actions.getEventsByCategory(category)).then((msg) => {
+      dispatch(actions.loading(false));
+    });
   },
   registerEvent: (eventCategory, eventName) => {
     dispatch(actions.registerEvent({ eventCategory, eventName }));
   },
   getRegisteredEvents: () => {
     dispatch(actions.getRegisteredEvents());
+  },
+  loading: (isLoading) => {
+    dispatch(actions.loading(isLoading));
   },
 });
 

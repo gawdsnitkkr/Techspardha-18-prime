@@ -160,6 +160,21 @@ const videos = (state = initialState.videos, action) => {
   }
 };
 
+const loading = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOADING_OVER':
+      return Object.assign({}, state, {
+        isLoading: false,
+      });
+    case 'LOADING_STARTS':
+      return Object.assign({}, state, {
+        isLoading: true,
+      });
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   user,
   events,
@@ -169,6 +184,7 @@ const rootReducer = combineReducers({
   videos,
   timestamp,
   currentEvents,
+  loading,
 });
 
 export default rootReducer;
