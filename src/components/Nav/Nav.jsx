@@ -5,9 +5,9 @@ import $ from 'jquery';
 import Finder from '../Finder/Finder';
 import './Nav.css';
 import actions from '../../actions';
+import Clock from './Clock';
 
 const jwtDecode = require('jwt-decode');
-
 
 const Event = (props) => {
   const { event } = props;
@@ -58,51 +58,19 @@ const DropDown = (props) => {
 };
 
 class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: new Date().toLocaleTimeString(),
-      date: new Date().toDateString(),
-    };
-  }
-
   componentDidMount() {
     $('#navbar-finder-button').click(() => {
       $('.Finder').fadeToggle(200);
     });
 
-    this.intervalID = setInterval(
-      () => this.tick(),
-      1000,
-    );
-
     const { getCurrentEvents } = this.props;
     getCurrentEvents();
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
-  }
-
-  componentWillReceiveProps = (nextProps) => {
-    this.setState({
-      time: new Date(nextProps.timestamp).toLocaleTimeString(),
-      date: new Date(nextProps.timestamp).toDateString(),
-    });
-  }
-
-  tick() {
-    this.setState({
-      time: new Date().toLocaleTimeString(),
-      date: new Date().toDateString(),
-    });
   }
 
   render() {
     const {
       loggedIn, onboard, currentEvents, timestamp,
     } = this.props;
-    const { time, date } = this.state;
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
@@ -114,16 +82,7 @@ class Nav extends React.Component {
              Timeline
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
-              <h2>
-                {date}
-              </h2>
-              <h2>
-                {/* 10:00
-                <small>
-                AM
-                </small> */}
-                {time}
-              </h2>
+              <Clock />
               <ul>
                 {
                   currentEvents.map(e => (
