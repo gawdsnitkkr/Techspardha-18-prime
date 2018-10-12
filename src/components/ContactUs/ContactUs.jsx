@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ContactUs.css';
 
 const People = (props) => {
@@ -40,7 +39,7 @@ const Section = (props) => {
   );
 };
 
-const Contact = () => {
+const Contact = (props) => {
   const SectionData = [
     {
       section: 'Marketing',
@@ -72,25 +71,25 @@ const Contact = () => {
     <div className="jumbotron" id="contactUs-page">
       <h1 className="display-4 text-center" id="contactUs-heading">
         <small>
-          <Link to="/">
+          <a
+            onClick={() => {
+              props.history.goBack();
+            }}
+          >
             <img src="/images/back.png" id="back-btn" alt="back img" />
-          </Link>
+          </a>
         </small>
         Contact us
       </h1>
 
       <div className="container text-center">
-
         <hr className="my-4" />
-        {
-          SectionData.map(s => (
-            <div key={s.section}>
-              <Section data={s} />
-            </div>
-          ))
-        }
+        {SectionData.map(s => (
+          <div key={s.section}>
+            <Section data={s} />
+          </div>
+        ))}
       </div>
-
     </div>
   );
 };
