@@ -1,8 +1,8 @@
 {
   "name": "techspardha-18-prime",
   "version": "0.1.0",
+  "homepage": "https://gawdsnitkkr.github.io/Techspardha-18-prime/",
   "private": true,
-  "homepage": "https://github.com/gawdsnitkkr/Techspardha-18-prime",
   "dependencies": {
     "eslint-config-airbnb-bundle": "^2.0.4",
     "jquery": "^3.3.1",

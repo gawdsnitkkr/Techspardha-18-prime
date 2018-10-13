@@ -164,11 +164,11 @@ class Events extends React.Component {
     } = this.props;
     console.log(events, 'lol');
     return isLoading ? (
-      <div style={{
-        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-      }}
-      >
-        <img src="/images/loader.gif" alt="loader" style={{ width: '500px', height: 'auto' }} />
+      <div id="circle_container">
+        <div id="load_wrapper">
+          <div id="sun" />
+          <div id="moon" />
+        </div>
       </div>
     ) : (
       <div className="jumbotron" id="events-page">
