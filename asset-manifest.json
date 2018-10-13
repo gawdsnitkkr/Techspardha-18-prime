@@ -1,13 +1,13 @@
 {
-  "main.css": "/static/css/main.331b2834.chunk.css",
-  "main.js": "/static/js/main.5a8c5122.chunk.js",
-  "main.js.map": "/static/js/main.5a8c5122.chunk.js.map",
-  "static/js/1.c0f93a50.chunk.js": "/static/js/1.c0f93a50.chunk.js",
-  "static/js/1.c0f93a50.chunk.js.map": "/static/js/1.c0f93a50.chunk.js.map",
-  "runtime~main.js": "/static/js/runtime~main.229c360f.js",
-  "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/main.331b2834.chunk.css.map": "/static/css/main.331b2834.chunk.css.map",
-  "index.html": "/index.html",
-  "precache-manifest.5e2ae6a1933fa8d7ce08371e93597d73.js": "/precache-manifest.5e2ae6a1933fa8d7ce08371e93597d73.js",
-  "service-worker.js": "/service-worker.js"
+  "main.css": "/Techspardha-18-prime/static/css/main.331b2834.chunk.css",
+  "main.js": "/Techspardha-18-prime/static/js/main.238736a5.chunk.js",
+  "main.js.map": "/Techspardha-18-prime/static/js/main.238736a5.chunk.js.map",
+  "static/js/1.c0f93a50.chunk.js": "/Techspardha-18-prime/static/js/1.c0f93a50.chunk.js",
+  "static/js/1.c0f93a50.chunk.js.map": "/Techspardha-18-prime/static/js/1.c0f93a50.chunk.js.map",
+  "runtime~main.js": "/Techspardha-18-prime/static/js/runtime~main.2a86eb0f.js",
+  "runtime~main.js.map": "/Techspardha-18-prime/static/js/runtime~main.2a86eb0f.js.map",
+  "static/css/main.331b2834.chunk.css.map": "/Techspardha-18-prime/static/css/main.331b2834.chunk.css.map",
+  "index.html": "/Techspardha-18-prime/index.html",
+  "precache-manifest.974fc92bf01ca68f445608cebc374199.js": "/Techspardha-18-prime/precache-manifest.974fc92bf01ca68f445608cebc374199.js",
+  "service-worker.js": "/Techspardha-18-prime/service-worker.js"
 }
