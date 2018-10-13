@@ -30,11 +30,23 @@ const EventCard = (props) => {
           <div className="col-4 text-center">
             <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
             <h6>
-              {event.startTime}
+              {
+                () => {
+                  const currentDate = new Date(event.startTime);
+                  const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+                  return formattedDate;
+                }
+              }
               <br />
                 to
               <br />
-              {event.endTime}
+              {
+                () => {
+                  const currentDate = new Date(event.endTime);
+                  const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+                  return formattedDate;
+                }
+              }
             </h6>
           </div>
           <div className="col-4 text-center">
@@ -156,7 +168,7 @@ class Events extends React.Component {
         position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
       }}
       >
-PLEASE WAIT... LOADING SOME SERIOUS BULLSHIT
+        <img src="/images/loader.gif" alt="loader" style={{ width: '500px', height: 'auto' }} />
       </div>
     ) : (
       <div className="jumbotron" id="events-page">
