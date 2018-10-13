@@ -36,6 +36,14 @@ class Finder extends Component {
     getCategories();
   }
 
+  componentDidUpdate() {
+    if ($('.search-result').is(':empty')) {
+      $('.search-result').append('<div class="no-result">No Result Found</div>');
+    } else {
+      $('.no-result').remove();
+    }
+  }
+
   render = () => {
     const { categories } = this.props;
     return (
@@ -50,15 +58,15 @@ class Finder extends Component {
         </div>
         <hr className="my-4" />
 
-        <div className="container text-center">
-          <ul className="nav justify-content-center">
+        <div className="container text-center row">
+          <ul className="nav justify-content-center search-result">
             {
               categories.map((c) => {
                 const re = new RegExp(`^${this.state.searchFilter}`, 'i');
                 const str = c;
                 if (str.match(re)) {
                   return (
-                    <div key={c}>
+                    <div key={c} className="col-3">
                       <Folder category={c} />
                     </div>
                   );

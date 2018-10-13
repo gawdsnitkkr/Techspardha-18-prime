@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import $ from 'jquery';
 import actions from '../../actions';
 import SweetAlert from '../SweetAlert';
 import './Events.css';
@@ -158,6 +159,12 @@ class Events extends React.Component {
       getEventsByCategory(match.params.category);
       loading(true);
     }
+
+    if ($('.search-result').is(':empty')) {
+      $('.search-result').append('<div class="no-result">No Result Found</div>');
+    } else {
+      $('.no-result').remove();
+    }
   }
 
   searchEnter = (e) => {
@@ -170,11 +177,21 @@ class Events extends React.Component {
     } = this.props;
     console.log(events, 'lol');
     return isLoading ? (
-      <div id="circle_container">
-        <div id="load_wrapper">
-          <div id="sun" />
-          <div id="moon" />
+      <div id="loader">
+        <div className="containing">
+          <div className="dot dot-1" />
+          <div className="dot dot-2" />
+          <div className="dot dot-3" />
         </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" />
+            </filter>
+          </defs>
+        </svg>
       </div>
     ) : (
       <div className="jumbotron" id="events-page">
