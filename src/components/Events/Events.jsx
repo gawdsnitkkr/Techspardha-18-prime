@@ -19,6 +19,16 @@ const EventCard = (props) => {
   const {
     event, registerEvent, registeredEvents, history,
   } = props;
+  const formatDate = (time) => {
+    const currentDate = new Date(time);
+    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}`;
+    return formattedDate;
+  };
+  const formatTime = (time) => {
+    const currentDate = new Date(time);
+    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+    return formattedTime;
+  };
   console.log(props);
   return (
     <div className="card">
@@ -31,32 +41,28 @@ const EventCard = (props) => {
             <img src="/images/calendar.png" className="event-icons" alt="date-icon" />
             <h6>
               {
-                () => {
-                  const currentDate = new Date(event.startTime);
-                  const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
-                  return formattedDate;
-                }
+                formatDate(event.startTime)
               }
               <br />
                 to
               <br />
               {
-                () => {
-                  const currentDate = new Date(event.endTime);
-                  const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}, ${currentDate.getHours()}:${currentDate.getMinutes()}`;
-                  return formattedDate;
-                }
+                formatDate(event.endTime)
               }
             </h6>
           </div>
           <div className="col-4 text-center">
             <img src="/images/time.png" className="event-icons" alt="time-icon" />
             <h6>
-              {event.startTime}
+              {
+                formatTime(event.startTime)
+              }
               <br />
                 to
               <br />
-              {event.endTime}
+              {
+                formatTime(event.endTime)
+              }
             </h6>
           </div>
           <div className="col-4 text-center">
