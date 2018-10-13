@@ -54,9 +54,9 @@ const DOC = () => {
     },
   ];
   return (
-    <footer className="fixed-bottom" id="dock">
+    <footer className="fixed-bottom text-center">
       <div className="container">
-        <div className="btn-group bg-light" role="group" aria-label="dockIcons">
+        <div className="btn-group bg-light justify-content-center" role="group" aria-label="dockIcons" id="dock">
           {
             dockerButtons.map(i => (
               <div key={i.title}>

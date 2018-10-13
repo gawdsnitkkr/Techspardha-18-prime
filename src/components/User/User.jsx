@@ -85,7 +85,7 @@ class User extends React.Component {
           year
           </h5>
           <p className="lead">
-      Techspardha18 prime
+      Techspardha'18 prime
           </p>
 
         </div>
@@ -97,9 +97,11 @@ class User extends React.Component {
           </h2>
           <div className="row">
             {events.length ? events.map(e => <Event event={e} />) : (
-              <h5>
-              No registered events.
-              </h5>
+              <div className="col-12">
+                <h5 className="text-center">
+                  No registered events.
+                </h5>
+              </div>
             )}
           </div>
         </div>

@@ -2,10 +2,27 @@
 	min-height: 100vh;
 	animation-name: fade-in;
   animation-duration: 0.3s;
+  background: none !important;
   animation-timing-function: ease-in-out;
+  color: #fff !important;
 }
+
+#contactUs-page h1 {
+    font-weight: bold;
+}
+
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
+}
+
+#contactUs-page .card {
+	color: #000 !important;
+	border-radius: 0px;
+	border: 0px solid;
+	transition: all 0.2s ease;
+}
+#contactUs-page .card:hover {
+	box-shadow: 0px 0px 10px 0px #565656;
 }
 #back-btn {
 	margin-top: -10px;

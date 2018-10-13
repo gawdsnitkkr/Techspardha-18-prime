@@ -27,7 +27,7 @@ class Desktop extends React.Component {
           <h1 className="display-2" id="main-heading">
           Techspardha'18
             {' '}
-            <small className="text-muted">
+            <small>
             Prime
             </small>
           </h1>

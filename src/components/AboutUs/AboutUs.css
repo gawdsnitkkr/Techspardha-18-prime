@@ -2,10 +2,17 @@
 	min-height: 100vh;
 	animation-name: fade-in;
   animation-duration: 0.3s;
+  background: none !important;
   animation-timing-function: ease-in-out;
+  color: #fff !important;
 }
+
+#aboutUs-page h1 {
+    font-weight: bold;
+}
+
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
 }
 #back-btn {
 	margin-top: -10px;

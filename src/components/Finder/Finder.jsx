@@ -53,13 +53,13 @@ class Finder extends Component {
         </h1>
         <div className="form-group">
           <center>
-            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" value={this.state.searchFilter} onChange={(e) => { this.setState({ searchFilter: e.target.value }); }} />
+            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search categories" value={this.state.searchFilter} onChange={(e) => { this.setState({ searchFilter: e.target.value }); }} />
           </center>
         </div>
         <hr className="my-4" />
 
-        <div className="container text-center row">
-          <ul className="nav justify-content-center search-result">
+        <div className="container justify-content-center">
+          <ul className="nav  search-result">
             {
               categories.map((c) => {
                 const re = new RegExp(`^${this.state.searchFilter}`, 'i');

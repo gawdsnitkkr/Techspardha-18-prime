@@ -8,16 +8,23 @@
 	position: fixed;
     min-height: 100vh;
     min-width: 100vw;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff !important;
 }
-
+ 
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
 }
 
 .finder-folder {
 	margin: 30px;
 	cursor: pointer;
 	transition: all 0.2s ease;
+    text-align: center !important;
+}
+
+#finder-page hr {
+    background: #c0c0c0 !important;
 }
 
 .finder-folder a{
@@ -32,6 +39,10 @@ body, html {
 	transform: scale(1.2);
 }
 
+.finder-labels {
+    color: #fff !important;
+}
+
 @media only screen and (max-width: 576px) { 
     #searchBox {
     	max-width: 100% !important;
@@ -42,6 +53,7 @@ body, html {
     }
     .finder-folder {
     	width: 24px;
+        margin: 0px;
     }
     .finder-labels {
     	font-size: 0.75rem !important;

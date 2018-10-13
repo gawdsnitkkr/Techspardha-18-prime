@@ -13,6 +13,8 @@
 }
 #dock {
 	text-align: center;
+	background: rgba(0, 0, 0, 0.8) !important;
+	border-radius: 0px !important; 
 }
 .fixed-bottom{
 	z-index: 90;
@@ -26,6 +28,12 @@
 	.dock-icon {
 		width: 30px;
 		margin: 2px;
+	}
+	#dock {
+		padding-top: 10px !important;
+		padding-bottom: 10px !important;
+		width: 100% !important;
+		text-align: center !important;
 	}
 	.dock-icon-btn {
 		margin: -4px;
