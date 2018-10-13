@@ -43,7 +43,8 @@ const DropDown = (props) => {
   return (
     <div className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {user.name}
+        <span className="d-none d-sm-inline">{user.name}</span>
+        <img src={user.picture} alt="img" className="d-inline d-sm-none user-pic-nav"/>
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
         <Link className="dropdown-item" to="/user">
@@ -75,11 +76,13 @@ class Nav extends React.Component {
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
           <a className="navbar-brand" id="navbar-finder-button">
-            techOS
+            <span className="d-none d-sm-inline">techOS</span>
+            <img src="/images/apps.png" alt="img" className="d-block d-sm-none" />
           </a>
           <div className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarTimelineDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Timeline
+              <span className="d-none d-sm-inline">Timeline</span>
+              <img src="/images/time.png" alt="img" className="d-inline d-sm-none" />
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
               <Clock />

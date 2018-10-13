@@ -2,11 +2,21 @@
     min-height: 100vh;
     animation-name: fade-in;
   animation-duration: 0.3s;
+  background: none !important;
   animation-timing-function: ease-in-out;
+  color: #fff !important;
 }
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
 }
+#desktop-page h1 {
+    font-weight: bold;
+}
+#desktop-page cite {
+    color: #fff !important;
+}
+
+
 #main-heading {
 	margin-top: 20px;
 	margin-bottom: 30px;

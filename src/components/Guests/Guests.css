@@ -3,12 +3,26 @@
 	animation-name: fade-in;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+  color: #fff !important;
+  background: none !important;
 }
 .mobile-no {
 	margin-left: 10px;
 }
+
+#guest-page .card {
+	color: #000 !important;
+	border-radius: 0px;
+	border: 0px solid;
+	transition: all 0.2s ease;
+	margin-bottom: 20px;
+}
+#guest-page .card:hover {
+	box-shadow: 0px 0px 10px 0px #565656;
+}
+
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
 }
 #back-btn {
 	margin-top: -10px;
@@ -25,6 +39,7 @@ body, html {
 }
 #guest-lecture-heading {
 	margin-bottom: 50px;
+	font-weight: bold;
 }
 
 @keyframes fade-in {
@@ -51,8 +66,5 @@ body, html {
 		}
 		#guest-page {
 			margin-bottom: 100px !important; 
-		}
-		.card {
-			margin-bottom: 20px;
 		}
 }

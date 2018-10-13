@@ -3,9 +3,12 @@
 	animation-name: fade-in;
   animation-duration: 0.3s;
   animation-timing-function: ease-in-out;
+  color: #fff !important;
+  background: none !important;
 }
+
 body, html {
-    background: #e9ecef;
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
 }
 #back-btn {
 	margin-top: -10px;
@@ -19,6 +22,7 @@ body, html {
 }
 #sponsor-heading {
 	margin-bottom: 30px;
+	font-weight: bold;
 }
 .sponsor-icons {
 	max-width: 128px;
