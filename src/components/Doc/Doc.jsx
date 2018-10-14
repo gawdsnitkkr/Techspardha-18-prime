@@ -43,7 +43,7 @@ const DOC = () => {
       image: '/images/doc/hackathon.png',
     },
     {
-      link: '/sponsers',
+      link: '/sponsors',
       title: 'Sponsors',
       image: '/images/doc/sponsor.png',
     },
