@@ -20,7 +20,7 @@ const App = () => (
         <LoggedIn path="/guestLectures" component={Guests} />
         <LoggedIn path="/contactUs" component={Contact} />
         <LoggedIn path="/aboutUs" component={AboutUs} />
-        <LoggedIn path="/sponsers" component={Sponsers} />
+        <LoggedIn path="/sponsors" component={Sponsers} />
         <LoggedIn path="/user" component={User} />
       </div>
     </Switch>

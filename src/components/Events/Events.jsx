@@ -30,6 +30,7 @@ const EventCard = (props) => {
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
     return formattedTime;
   };
+
   console.log(props);
   return (
     <div className="card">
@@ -79,26 +80,24 @@ const EventCard = (props) => {
           About
         </h5>
         <p className="card-text">
-			    	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			    	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			    	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			    	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			    	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			    	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-          {' '}
+          {event.description}
         </p>
         <h5>
           Rules
         </h5>
         <p className="card-text">
           <ul>
-            <li>
-              Rule 1
-            </li>
-            <li>
-              Rule 2
-            </li>
+            {
+              event.rules ? event.rules.map(r => (
+                <li>
+                  {r}
+                </li>
+              )) : (
+                <li>
+No Rules
+                </li>
+              )
+            }
           </ul>
         </p>
         <h5>
@@ -106,25 +105,36 @@ const EventCard = (props) => {
         </h5>
         <p className="card-text">
           <ul>
-            <li>
-              <h5>
-                John
-                <small className="mobile-no">
-                  9999999999
-                </small>
-              </h5>
-            </li>
+
+            {
+              event.coordinators ? event.coordinators.map(c => (
+                <li>
+                  <h5>
+                    {c.coordinator_name}
+                    <small className="mobile-no">
+                      {c.coordinator_number}
+                    </small>
+                  </h5>
+                </li>
+              )) : (
+                <li>
+                  {' '}
+No Coordinators
+                  {' '}
+                </li>
+              )
+            }
           </ul>
         </p>
         {
           registeredEvents.find(x => x.eventName === event.eventName) ? (
-            <button type="button" className="btn btn-success disabled">
-              Registerd
+            <button type="button" className="btn btn-success disabled mr-1 mt-1">
+              Registered
             </button>
           ) : (
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary mr-1 mt-1"
               onClick={(e) => {
                 e.preventDefault(); checkUser(registerEvent, event.eventCategory, event.eventName, history);
               }}
@@ -132,6 +142,13 @@ const EventCard = (props) => {
               Register
             </button>
           )
+        }
+        {
+          event.file && event.file !== '' ? (
+            <a href={event.file} target="_blank" className="btn btn-danger mt-1">
+          View More
+            </a>
+          ) : null
         }
       </div>
     </div>
@@ -177,7 +194,7 @@ class Events extends React.Component {
     } = this.props;
     console.log(events, 'lol');
     return isLoading ? (
-      <div id="loader">
+      <div id="loader" style={{height: '100vh'}}>
         <div className="containing">
           <div className="dot dot-1" />
           <div className="dot dot-2" />
@@ -217,7 +234,7 @@ class Events extends React.Component {
               if (str.match(re)) {
                 return (
                   <div key={e.eventName} className="col-sm-4">
-                    <EventCard event={e} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
+                    <EventCard event={e} rules={e.rules} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
                   </div>
                 );
               }
