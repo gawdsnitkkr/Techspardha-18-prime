@@ -194,7 +194,7 @@ class Events extends React.Component {
     } = this.props;
     console.log(events, 'lol');
     return isLoading ? (
-      <div id="loader">
+      <div id="loader" style={{height: '100vh'}}>
         <div className="containing">
           <div className="dot dot-1" />
           <div className="dot dot-2" />
