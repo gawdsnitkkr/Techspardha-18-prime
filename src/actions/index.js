@@ -18,7 +18,6 @@ const login = token => (dispatch) => {
     } else if (data.success && data.onBoard) {
       dispatch(success('SUCCESS_LOGIN', data));
     } else {
-      console.log(data);
     }
   });
 };
@@ -84,7 +83,6 @@ const getRegisteredEvents = () => (dispatch) => {
 };
 
 const registerEvent = formData => (dispatch) => {
-  console.log(formData);
   services.registerEvent(formData).then((data) => {
     if (data.success) {
       dispatch(success('EVENT_REGISTERED_SUCCESS', data));
