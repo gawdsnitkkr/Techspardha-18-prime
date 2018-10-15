@@ -66,7 +66,7 @@ const EventCard = (props) => {
               }
             </h6>
           </div>
-          <div className="col-4 text-center">
+          <div className={event.venue ? 'col-4 text-center' : 'd-none'}>
             <img src="/images/location.png" className="event-icons" alt="date-icon" />
             <h6>
               {event.venue}
