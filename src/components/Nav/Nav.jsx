@@ -11,22 +11,12 @@ const jwtDecode = require('jwt-decode');
 
 const Event = (props) => {
   const { event } = props;
-  console.log(event);
   return (
     <li>
       <h6>
         <Link to={`/events/${event.eventDetails.eventCategory}`}>
           {event.eventDetails.eventName}
         </Link>
-      </h6>
-      <h6>
-        <i>
-        Status-
-        </i>
-        {' '}
-        <b>
-          {event.status}
-        </b>
       </h6>
       <h6>
         {new Date(event.eventDetails.startTime).toDateString()}
@@ -43,15 +33,17 @@ const DropDown = (props) => {
   return (
     <div className="nav-item dropdown">
       <a className="nav-link dropdown-toggle" href="#" id="navbarUserOptionsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span className="d-none d-sm-inline">{user.name}</span>
-        <img src={user.picture} alt="img" className="d-inline d-sm-none user-pic-nav"/>
+        <span className="d-none d-sm-inline">
+          {user.name}
+        </span>
+        <img src={user.picture} alt="img" className="d-inline d-sm-none user-pic-nav" />
       </a>
       <div className="dropdown-menu" aria-labelledby="navbarUserOptionsDropdown" id="userDropdown">
         <Link className="dropdown-item" to="/user">
-              My Profile
+          My Profile
         </Link>
         <a className="dropdown-item" href="#userLogout" onClick={(e) => { e.preventDefault(); localStorage.clear(); window.location.reload(); }}>
-              Log Out
+          Log Out
         </a>
       </div>
     </div>
@@ -72,30 +64,59 @@ class Nav extends React.Component {
     const {
       loggedIn, onboard, currentEvents, timestamp,
     } = this.props;
+    const upComingEventsArray = currentEvents.filter(x => x.status === 'upcoming');
+    const liveEventsArray = currentEvents.filter(x => x.status === 'live');
+    upComingEventsArray.sort((a, b) => a.eventDetails.startTime - b.eventDetails.startTime);
+    liveEventsArray.sort((a, b) => a.eventDetails.startTime - b.eventDetails.startTime);
+
     return (
       <div>
         <nav className="navbar fixed-top navbar-light bg-light">
           <a className="navbar-brand" id="navbar-finder-button">
-            <span className="d-none d-sm-inline">techOS</span>
+            <span className="d-none d-sm-inline">
+              techOS
+            </span>
             <img src="/images/apps.png" alt="img" className="d-block d-sm-none" />
           </a>
           <div className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarTimelineDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span className="d-none d-sm-inline">Timeline</span>
+              <span className="d-none d-sm-inline">
+                Timeline
+              </span>
               <img src="/images/time.png" alt="img" className="d-inline d-sm-none" />
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarTimelineDropdown" id="timelineDropdown">
               <Clock />
+              <h5>
+                Live Events
+              </h5>
               <ul>
                 {
-                  currentEvents.map(e => (
+                  liveEventsArray.length ? liveEventsArray.map(e => (
+                    <div key={e.eventDetails.eventName}>
+                      <Event event={e} />
+                    </div>
+                  )) : (
+                    <div>
+                        No current live events
+                    </div>
+                  )
+                }
+              </ul>
+              <div className={upComingEventsArray.length ? '' : 'd-none'}>
+                <h5>
+                Upcoming Events
+                </h5>
+                <ul>
+                  {
+                  upComingEventsArray.map(e => (
                     <div key={e.eventDetails.eventName}>
                       <Event event={e} />
                     </div>
                   ))
                 }
-              </ul>
-              
+                </ul>
+              </div>
             </div>
           </div>
           {

@@ -16,7 +16,6 @@ const user = (state = initialState.user, action) => {
       });
 
     case 'SIGNUP_REQUIRED':
-      console.log(action.data.data.token);
       localStorage.setItem('token', action.data.data.token);
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
@@ -39,7 +38,6 @@ const user = (state = initialState.user, action) => {
       return state;
 
     case 'USER_REGISTERED_EVENTS_SUCCESS':
-      console.log(action.data.data.events);
       return Object.assign({}, state, {
         registeredEvents: action.data.data.events,
       });
@@ -71,7 +69,6 @@ const events = (state = initialState.events, action) => {
 };
 
 const currentEvents = (state = initialState.currentEvents, action) => {
-  console.log(action);
   switch (action.type) {
     case 'FETCH_CURRENT_EVENTS_SUCCESS':
       return action.data.data.events;

@@ -31,7 +31,6 @@ const EventCard = (props) => {
     return formattedTime;
   };
 
-  console.log(props);
   return (
     <div className="card">
       <div className="card-header">
@@ -67,7 +66,7 @@ const EventCard = (props) => {
               }
             </h6>
           </div>
-          <div className="col-4 text-center">
+          <div className={event.venue ? 'col-4 text-center' : 'd-none'}>
             <img src="/images/location.png" className="event-icons" alt="date-icon" />
             <h6>
               {event.venue}
@@ -193,9 +192,8 @@ class Events extends React.Component {
     const {
       events, match, registerEvent, registeredEvents, history, isLoading,
     } = this.props;
-    console.log(events, 'lol');
     return isLoading ? (
-      <div id="loader" style={{height: '100vh'}}>
+      <div id="loader" style={{ height: '100vh' }}>
         <div className="containing">
           <div className="dot dot-1" />
           <div className="dot dot-2" />

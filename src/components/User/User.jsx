@@ -7,7 +7,6 @@ import './User.css';
 const jwtDecode = require('jwt-decode');
 
 const Event = (props) => {
-  console.log('dfsd');
   const { event } = props;
   return (
     <div className="col-sm-3">
@@ -56,13 +55,12 @@ class User extends React.Component {
     const user = jwtDecode(token);
 
     const { events } = this.props;
-    console.log(events);
 
     return (
       <div className="jumbotron" id="myProfile-page">
         <h1 className="display-4 text-center" id="contactUs-heading">
           <small>
-            <a onClick={() => {this.props.history.goBack()}}>
+            <a onClick={() => { this.props.history.goBack(); }}>
               <img src="/images/back.png" id="back-btn" alt="img" />
             </a>
           </small>
@@ -72,7 +70,7 @@ class User extends React.Component {
         <div className="container">
 
           <hr className="my-4" />
-          <img src={user.picture} id="back-btn" alt="img"/>
+          <img src={user.picture} id="back-btn" alt="img" />
           <h1 id="user-name">
             {user.name}
           </h1>

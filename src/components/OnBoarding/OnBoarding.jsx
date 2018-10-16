@@ -9,7 +9,7 @@ class OnBoarding extends React.Component {
     super(props);
     this.state = {
       year: '',
-      college: '',
+      college: 'First',
       phone: '',
     };
 
@@ -31,12 +31,10 @@ class OnBoarding extends React.Component {
     e.preventDefault();
     const { signup } = this.props;
     signup(this.state);
-    console.log(this.state);
   };
 
 
   render = () => {
-    console.log('sdf');
     const {
       year, college, phone,
     } = this.state;
