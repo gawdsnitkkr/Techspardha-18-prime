@@ -46,12 +46,12 @@ class OnBoarding extends React.Component {
         <h1 className="display-4 text-center">
       Welcome aboard
         </h1>
-        <h1 className="text-center mb-5">
-    Techspardha18 Prime
-        </h1>
-        <h5 className="text-center">
+        <h3 className="text-center mb-5">
+    Techspardha'18 Prime
+        </h3>
+        <p className="lead text-center">
     To continue we need a few more details about you...
-        </h5>
+        </p>
         <div className="container text-center">
           <hr className="my-4" />
 

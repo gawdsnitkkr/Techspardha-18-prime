@@ -11,7 +11,7 @@ const checkUser = (registerEvent, eventCategory, eventName, history) => {
   if ((localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) {
     registerEvent(eventCategory, eventName);
   } else {
-    SweetAlert('Please Login to Register for an event', 'error');
+    SweetAlert('Please Login to Register for an event', 'warning');
     history.push('/');
   }
 };
@@ -231,7 +231,7 @@ class Events extends React.Component {
               const str = e.eventName;
               if (str.match(re)) {
                 return (
-                  <div key={e.eventName} className="col-sm-4">
+                  <div key={e.eventName} className="col-sm-4 d-flex align-items-stretch justify-content-center">
                     <EventCard event={e} rules={e.rules} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
                   </div>
                 );
