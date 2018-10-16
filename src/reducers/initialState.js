@@ -13,7 +13,8 @@ const initialState = {
   videos: [],
   timestamp: new Date().getTime(),
   currentEvents: [],
-  isLoading: true,
+  loading: true,
+  lectures: [],
 };
 
 export default initialState;

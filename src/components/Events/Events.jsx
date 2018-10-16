@@ -169,7 +169,8 @@ class Events extends React.Component {
   }
 
   componentDidUpdate() {
-    const { loading, getEventsByCategory, match } = this.props;
+    const { isLoading, loading, getEventsByCategory, match } = this.props;
+    console.log("####################",isLoading);
     const { url } = this.state;
     if (url !== match.params.category) {
       this.setState({ url: match.params.category });
@@ -250,7 +251,7 @@ class Events extends React.Component {
 const mapStateToProps = state => ({
   events: state.events,
   registeredEvents: state.user.registeredEvents,
-  isLoading: state.loading.isLoading,
+  isLoading: state.loading,
 });
 
 

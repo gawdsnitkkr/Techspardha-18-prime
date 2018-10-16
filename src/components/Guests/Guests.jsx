@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../../actions';
 import './Guests.css';
 
 const Guests = props => (
@@ -54,8 +56,6 @@ About
         </div>
       </div>
 
-      
-
       <div className="col-sm-4">
         <div className="card">
           <img className="card-img-top" src="/images/guests/download3.jpg" alt="guests" />
@@ -97,4 +97,13 @@ About
   </div>
 );
 
-export default Guests;
+const mapDispatchToProps = dispatch => ({
+  getLectures: () => {
+    dispatch(actions.getLectures);
+  },
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Guests);

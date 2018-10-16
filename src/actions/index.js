@@ -163,6 +163,16 @@ const loading = isLoading => (dispatch) => {
   }
 };
 
+const getLectures = (dispatch) => {
+  services.getGuestLectures().then((data) => {
+    if (data.success) {
+      dispatch(success('FETCH_LECTURES_SUCCESS', data));
+    } else {
+      dispatch(failure('FETCH_LECTURES_FAILURE', data));
+    }
+  });
+} 
+
 export default {
   login,
   signup,
@@ -178,4 +188,5 @@ export default {
   getTimestamp,
   getEventsByCategory,
   loading,
+  getLectures,
 };
