@@ -158,7 +158,7 @@ No Coordinators
 class Events extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: this.props.match.params.category, loading: true, searchFilter: '' };
+    this.state = { url: this.props.match.params.category, searchFilter: '' };
   }
 
   componentDidMount = () => {

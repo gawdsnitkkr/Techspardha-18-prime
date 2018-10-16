@@ -160,7 +160,7 @@ const loading = isLoading => (dispatch) => {
   }
 };
 
-const getLectures = (dispatch) => {
+const getLectures = () => (dispatch) => {
   services.getGuestLectures().then((data) => {
     if (data.success) {
       dispatch(success('FETCH_LECTURES_SUCCESS', data));
@@ -168,7 +168,7 @@ const getLectures = (dispatch) => {
       dispatch(failure('FETCH_LECTURES_FAILURE', data));
     }
   });
-} 
+};
 
 export default {
   login,

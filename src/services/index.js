@@ -207,7 +207,7 @@ const getGuestLectures = () => {
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/lectures`, reqOptions)
     .then(response => response.json())
-    .then(lectures => lectures);
+    .then((lectures) => lectures);
 };
 
 export default {
