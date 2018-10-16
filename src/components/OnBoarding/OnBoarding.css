@@ -2,13 +2,22 @@
 	min-height: 100vh;
 	margin: 0px;
 	animation-name: fade-in;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in-out;
+    animation-duration: 0.3s;
+    background: none !important;
+    animation-timing-function: ease-in-out;
+    color: #fff !important;
+}
+#onBoarding-page h1 {
+    font-weight: bold;
 }
 .control-width {
 	max-width: 50%;
 	margin-left: 20px;
 }
+body, html {
+    background: linear-gradient(rgb(17, 67, 87), rgb(242, 148, 146)) !important; 
+}
+
 @keyframes fade-in {
     from {
     	opacity: 0;
@@ -18,4 +27,15 @@
     	opacity: 1;
     	transform: scale(1);
     }
+}
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
