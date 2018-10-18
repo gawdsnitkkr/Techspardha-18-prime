@@ -67,11 +67,25 @@ class Contact extends React.Component {
         <div className="container text-center">
           <hr className="my-4" />
           {
-            contacts.map(c => (
-              <div key={c.people.phoneNo}>
-                <Section data={c} />
-              </div>
-            ))
+            contacts.length > 0 ? (
+              contacts.map(c => (
+                <div key={c.people.phoneNo}>
+                  <Section data={c} />
+                </div>
+              ))
+            ) : (
+              <div
+                  className="rounded-circle content-loader"
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    position: 'absolute',
+                    borderRight: '5px solid white',
+                    left: '50%',
+                    marginTop: '150px',
+                  }}
+                />
+            )
           }
         </div>
       </div>
