@@ -15,7 +15,7 @@ class App extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       $('#loader-page').remove();
-    });
+    }, 1000);
   }
 
   render() {

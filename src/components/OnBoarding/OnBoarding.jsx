@@ -8,8 +8,8 @@ class OnBoarding extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      year: '',
-      college: 'First',
+      year: 'First',
+      college: '',
       phone: '',
     };
 
@@ -44,13 +44,13 @@ class OnBoarding extends React.Component {
           <img src="/images/startup.png" alt="img" />
         </div>
         <h1 className="display-4 text-center">
-      Welcome aboard
+          Welcome aboard
         </h1>
         <h1 className="text-center mb-5">
-    Techspardha18 Prime
+          Techspardha18 Prime
         </h1>
         <h5 className="text-center">
-    To continue we need a few more details about you...
+          To continue we need a few more details about you...
         </h5>
         <div className="container text-center">
           <hr className="my-4" />
@@ -60,7 +60,7 @@ class OnBoarding extends React.Component {
               <div className="form-group">
                 <input type="text" name="college" className="form-control" id="user-college" value={college} aria-describedby="collegeName" placeholder="College name" onChange={this.onChange} required />
                 <label htmlFor="user-college">
-            Your college
+                  Your college
                 </label>
               </div>
             </div>
@@ -68,27 +68,27 @@ class OnBoarding extends React.Component {
               <div className="form-group">
                 <input type="number" name="phone" value={phone} onChange={this.onChange} required className="form-control" id="user-mobile" aria-describedby="collegeName" placeholder="Mobile Number" />
                 <label htmlFor="user-mobile">
-            Mobile Number
+                  Mobile Number
                 </label>
               </div>
             </div>
             <div className="col-sm-3">
               <select className="form-control" id="user-year" name="year" value={year} onChange={this.onChange} required>
                 <option value="First">
-            First
+                  First
                 </option>
                 <option value="Second">
-            Second
+                  Second
                 </option>
                 <option value="Third">
-            Third
+                  Third
                 </option>
                 <option value="Fourth">
-            Fourth
+                  Fourth
                 </option>
               </select>
               <label htmlFor="user-year">
-          Your year
+                Your year
               </label>
             </div>
           </div>
@@ -96,7 +96,7 @@ class OnBoarding extends React.Component {
           <div className="row justify-content-md-center">
             <div className="col-sm-4">
               <button type="submit" className="btn btn-danger">
-          Continue
+                Continue
               </button>
             </div>
           </div>
