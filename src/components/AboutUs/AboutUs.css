@@ -30,6 +30,23 @@ body, html {
 .credit-icons {
 	width: 48px;
 }
+#GAWDSLink_svg{
+	transform: translateY(10px);
+}
+
+.content-loader{
+	transform: translate(-50%, -50%);
+	animation: rotation infinite 1s linear;
+}
+
+@keyframes rotation {
+	0%{
+		transform: translate(-50%, -50%) rotateZ(0deg);
+	}
+	100%{
+		transform: translate(-50%, -50%) rotateZ(360deg);
+	}
+}
 
 @keyframes fade-in {
     from {

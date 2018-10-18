@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#ffffff">
-
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <!--
@@ -33,11 +33,11 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <div class="jumbotron" id="loader-page">
-    <div class="text-center" id="loader-center">
+    <!--<div class="text-center" id="loader-center">
 
       <img src="/images/loader.gif" id="loader-gif" />
       <h2 class="display-3">techOS</h2>
-    </div>
+    </div>-->
   </div>
   <div id="root"></div>
   <!--
@@ -68,10 +68,6 @@
       $('[data-toggle="tooltip"]').on('click', function () {
         $(this).tooltip('hide');
       });
-
-      setTimeout(function () {
-        $("#loader-page").remove();
-      }, 1000);
 
     });
   </script>
