@@ -1,18 +1,20 @@
 import React from 'react';
 import './ContactUs.css';
+import { connect } from 'react-redux';
+import actions from '../../actions';
 
 const People = (props) => {
   const { person } = props;
   return (
     <li className="nav-item contact-info-card">
       <div className="card">
-        <img className="card-img-top" src={person.image} alt="Card cap" />
+        <img className="card-img-top" src={person.imageUrl} alt="Card cap" />
         <div className="card-body">
           <h5 className="card-title">
             {person.name}
           </h5>
           <p className="card-text">
-            {person.number}
+            {person.phoneNo}
           </p>
         </div>
       </div>
@@ -39,59 +41,53 @@ const Section = (props) => {
   );
 };
 
-const Contact = (props) => {
-  const SectionData = [
-    {
-      section: 'Marketing',
-      people: [
-        {
-          name: 'Albert',
-          number: '9729778862',
-          image: '/images/contact/sample-person.jpg',
-        },
-        {
-          name: 'Albert3',
-          number: '9729778862',
-          image: '/images/contact/sample-person.jpg',
-        },
-      ],
-    },
-    {
-      section: 'Development',
-      people: [
-        {
-          name: 'Albert1',
-          number: '9729778862',
-          image: '/images/contact/sample-person.jpg',
-        },
-      ],
-    },
-  ];
-  return (
-    <div className="jumbotron" id="contactUs-page">
-      <h1 className="display-4 text-center" id="contactUs-heading">
-        <small>
-          <a
-            onClick={() => {
-              props.history.goBack();
-            }}
-          >
-            <img src="/images/back.png" id="back-btn" alt="back img" />
-          </a>
-        </small>
-        Contact us
-      </h1>
+class Contact extends React.Component {
+  componentDidMount() {
+    const { getContacts } = this.props;
+    getContacts();
+  }
 
-      <div className="container text-center">
-        <hr className="my-4" />
-        {SectionData.map(s => (
-          <div key={s.section}>
-            <Section data={s} />
-          </div>
-        ))}
+  render() {
+    const { contacts } = this.props;
+    return (
+      <div className="jumbotron" id="contactUs-page">
+        <h1 className="display-4 text-center" id="contactUs-heading">
+          <small>
+            <a
+              onClick={() => {
+                this.props.history.goBack();
+              }}
+            >
+              <img src="/images/back.png" id="back-btn" alt="back img" />
+            </a>
+          </small>
+          Contact us
+        </h1>
+
+        <div className="container text-center">
+          <hr className="my-4" />
+          {
+            contacts.map(c => (
+              <div key={c.people.phoneNo}>
+                <Section data={c} />
+              </div>
+            ))
+          }
+        </div>
       </div>
-    </div>
-  );
-};
 
-export default Contact;
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  contacts: state.contact,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getContacts: () => {
+    dispatch(actions.getContact());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

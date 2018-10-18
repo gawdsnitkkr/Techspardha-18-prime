@@ -170,6 +170,26 @@ const getLectures = () => (dispatch) => {
   });
 };
 
+const getAbout = () => (dispatch) => {
+  services.getAboutUs().then((data) => {
+    if (data.success) {
+      dispatch(success('FETCH_ABOUT_SUCCESS', data));
+    } else {
+      dispatch(failure('FETCH_LECTURES_FAILURE', data));
+    }
+  });
+};
+
+const getContact = () => (dispatch) => {
+  services.getContact().then((data) => {
+    if (data.success) {
+      dispatch(success('FETCH_CONTACT_SUCCESS', data));
+    } else {
+      dispatch(failure('FETCH_CONTACT_FAILURE', data));
+    }
+  });
+};
+
 export default {
   login,
   signup,
@@ -186,4 +206,6 @@ export default {
   getEventsByCategory,
   loading,
   getLectures,
+  getAbout,
+  getContact,
 };

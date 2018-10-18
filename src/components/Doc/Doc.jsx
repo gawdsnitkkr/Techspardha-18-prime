@@ -23,14 +23,14 @@ const Buttons = (props) => {
 const DOC = () => {
   const dockerButtons = [
     {
+      link: '/',
+      title: 'Home',
+      image: '/images/doc/home.png',
+    },
+    {
       link: '/aboutUs',
       title: 'About us',
       image: '/images/doc/aboutus.png',
-    },
-    {
-      link: '/exhibitions',
-      title: 'Exhibitions',
-      image: '/images/doc/exhibition.png',
     },
     {
       link: '/guestLectures',

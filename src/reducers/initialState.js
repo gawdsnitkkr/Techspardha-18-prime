@@ -15,6 +15,8 @@ const initialState = {
   currentEvents: [],
   loading: true,
   lectures: [],
+  about: [],
+  contact: [],
 };
 
 export default initialState;

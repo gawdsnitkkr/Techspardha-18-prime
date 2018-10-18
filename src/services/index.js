@@ -207,7 +207,33 @@ const getGuestLectures = () => {
   reqOptions.method = 'GET';
   return fetch(`${config.api.url}/lectures`, reqOptions)
     .then(response => response.json())
-    .then((lectures) => lectures);
+    .then(lectures => lectures);
+};
+
+const getAboutUs = () => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/about`, reqOptions)
+    .then(response => response.json())
+    .then(about => about);
+};
+
+const getContact = () => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/contacts`, reqOptions)
+    .then(response => response.json())
+    .then(contact => contact);
 };
 
 export default {
@@ -226,4 +252,6 @@ export default {
   getEventsByCategory,
   getCurrentEvents,
   getGuestLectures,
+  getAboutUs,
+  getContact,
 };
