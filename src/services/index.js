@@ -89,7 +89,6 @@ const postEvents = (data) => {
     .then(postedEvents => postedEvents);
 };
 
-
 const registeredEvents = () => {
   const reqOptions = {
     headers: {
@@ -198,6 +197,19 @@ const getCurrentEvents = (timestamp) => {
     .then(events => events);
 };
 
+const getGuestLectures = () => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/lectures`, reqOptions)
+    .then(response => response.json())
+    .then((lectures) => lectures);
+};
+
 export default {
   login,
   signup,
@@ -213,4 +225,5 @@ export default {
   timestamp,
   getEventsByCategory,
   getCurrentEvents,
+  getGuestLectures,
 };

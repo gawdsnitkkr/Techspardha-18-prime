@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { object } from 'prop-types';
 import initialState from './initialState';
 import SweetAlert from '../components/SweetAlert';
 
@@ -23,7 +24,7 @@ const user = (state = initialState.user, action) => {
       });
 
     case 'ONBOARD_SUCCESS':
-    // Todo:= check the schema of the jwt
+      // Todo:= check the schema of the jwt
       localStorage.setItem('token', action.data.data.token);
       return Object.assign({}, state, {
         userData: jwtDecode(action.data.data.token),
@@ -157,16 +158,23 @@ const videos = (state = initialState.videos, action) => {
   }
 };
 
-const loading = (state = initialState, action) => {
+const loading = (state = initialState.loading, action) => {
   switch (action.type) {
     case 'LOADING_OVER':
-      return Object.assign({}, state, {
-        isLoading: false,
-      });
+      return false;
     case 'LOADING_STARTS':
-      return Object.assign({}, state, {
-        isLoading: true,
-      });
+      return true;
+    default:
+      return state;
+  }
+};
+
+const lectures = (state = initialState.lectures, action) => {
+  switch (action.type) {
+    case 'FETCH_LECTURES_SUCCESS':
+      return action.data.data.lectures;
+    case 'FETCH_LECTURES_FAILURE':
+      return state;
     default:
       return state;
   }
@@ -182,6 +190,7 @@ const rootReducer = combineReducers({
   timestamp,
   currentEvents,
   loading,
+  lectures,
 });
 
 export default rootReducer;

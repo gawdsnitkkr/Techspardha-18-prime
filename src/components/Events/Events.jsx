@@ -16,6 +16,33 @@ const checkUser = (registerEvent, eventCategory, eventName, history) => {
   }
 };
 
+const EventModal = () => (
+  <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">
+            Description
+          </h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              &times;
+            </span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <p />
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const EventCard = (props) => {
   const {
     event, registerEvent, registeredEvents, history,
@@ -31,6 +58,18 @@ const EventCard = (props) => {
     return formattedTime;
   };
 
+  const onClickViewMore = (obj) => {
+    if (typeof obj === "string") {
+      $('.modal-body>p').html(obj);
+    } else {
+      let ul = $('<ul></ul>');
+      obj.map(r => {
+        ul.append("<li>" + r + "</li>");
+      });
+      $('.modal-body>p').html(ul);
+    }
+  }
+
   return (
     <div className="card">
       <div className="card-header">
@@ -45,7 +84,7 @@ const EventCard = (props) => {
                 formatDate(event.startTime)
               }
               <br />
-                to
+              to
               <br />
               {
                 formatDate(event.endTime)
@@ -59,7 +98,7 @@ const EventCard = (props) => {
                 formatTime(event.startTime)
               }
               <br />
-                to
+              to
               <br />
               {
                 formatTime(event.endTime)
@@ -78,8 +117,17 @@ const EventCard = (props) => {
         <h5>
           About
         </h5>
-        <p className="card-text">
-          {event.description}
+        <p className="card-text description-box">
+          {event.description.substr(0, 200)}
+        </p>
+        <p className="card-text description-box">
+          {
+            event.description.length > 199 ? (
+              <button type="button" className="btn btn-success" data-toggle="modal" data-target="#exampleModal" onClick={() => { onClickViewMore(event.description); }}>
+                View More Description
+              </button>
+            ) : null
+          }
         </p>
         <h5>
           Rules
@@ -87,17 +135,24 @@ const EventCard = (props) => {
         <p className="card-text">
           <ul>
             {
-              event.rules ? event.rules.map(r => (
+              event.rules ? event.rules.slice(0, 3).map(r => (
                 <li>
                   {r}
                 </li>
-              )) : (
-                <li>
-No Rules
-                </li>
-              )
+              )) : <li>
+                  No Rules
+</li>
             }
           </ul>
+        </p>
+        <p className="card-text">
+          {
+            event.rules && event.rules.length > 3 ? (
+              <button type="button" className="btn btn-success" data-toggle="modal" data-target="#exampleModal" onClick={() => { onClickViewMore(event.rules); }}>
+                View All rules
+              </button>
+            ) : null
+          }
         </p>
         <h5>
           Coordinators
@@ -116,12 +171,12 @@ No Rules
                   </h5>
                 </li>
               )) : (
-                <li>
-                  {' '}
-No Coordinators
-                  {' '}
-                </li>
-              )
+                  <li>
+                    {' '}
+                    No Coordinators
+                    {' '}
+                  </li>
+                )
             }
           </ul>
         </p>
@@ -131,25 +186,26 @@ No Coordinators
               Registered
             </button>
           ) : (
-            <button
-              type="button"
-              className="btn btn-primary mr-1 mt-1"
-              onClick={(e) => {
-                e.preventDefault(); checkUser(registerEvent, event.eventCategory, event.eventName, history);
-              }}
-            >
-              Register
-            </button>
-          )
+              <button
+                type="button"
+                className="btn btn-primary mr-1 mt-1"
+                onClick={(e) => {
+                  e.preventDefault(); checkUser(registerEvent, event.eventCategory, event.eventName, history);
+                }}
+              >
+                Register
+              </button>
+            )
         }
         {
           event.file && event.file !== '' ? (
             <a href={event.file} target="_blank" className="btn btn-danger mt-1">
-          View More
+              View More
             </a>
           ) : null
         }
       </div>
+      <EventModal />
     </div>
 
   );
@@ -158,7 +214,7 @@ No Coordinators
 class Events extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { url: this.props.match.params.category, loading: true, searchFilter: '' };
+    this.state = { url: this.props.match.params.category, searchFilter: '' };
   }
 
   componentDidMount = () => {
@@ -168,7 +224,9 @@ class Events extends React.Component {
   }
 
   componentDidUpdate() {
-    const { loading, getEventsByCategory, match } = this.props;
+    const {
+      isLoading, loading, getEventsByCategory, match,
+    } = this.props;
     const { url } = this.state;
     if (url !== match.params.category) {
       this.setState({ url: match.params.category });
@@ -209,46 +267,46 @@ class Events extends React.Component {
         </svg>
       </div>
     ) : (
-      <div className="jumbotron" id="events-page">
-        <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }} id="event-heading">
-          <small>
-            <a onClick={() => { history.goBack(); }}>
-              <img src="/images/back.png" id="back-btn" alt="go_back" />
-            </a>
-          </small>
-          {match.params.category}
-        </h1>
-        <div className="form-group">
-          <center>
-            <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" onChange={this.searchEnter} value={this.state.searchFilter} />
-          </center>
+        <div className="jumbotron" id="events-page">
+          <h1 className="display-4 text-center" style={{ textTransform: 'capitalize' }} id="event-heading">
+            <small>
+              <a onClick={() => { history.goBack(); }}>
+                <img src="/images/back.png" id="back-btn" alt="go_back" />
+              </a>
+            </small>
+            {match.params.category}
+          </h1>
+          <div className="form-group">
+            <center>
+              <input type="text" className="form-control" id="searchBox" aria-describedby="searchBox" placeholder="Search events" onChange={this.searchEnter} value={this.state.searchFilter} />
+            </center>
+          </div>
+
+          <div className="row">
+            {
+              events.map((e) => {
+                const re = new RegExp(`^${this.state.searchFilter}`, 'i');
+                const str = e.eventName;
+                if (str.match(re)) {
+                  return (
+                    <div key={e.eventName} className="col-sm-4">
+                      <EventCard event={e} rules={e.rules} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
+                    </div>
+                  );
+                }
+              })
+            }
+          </div>
+
         </div>
 
-        <div className="row">
-          {
-            events.map((e) => {
-              const re = new RegExp(`^${this.state.searchFilter}`, 'i');
-              const str = e.eventName;
-              if (str.match(re)) {
-                return (
-                  <div key={e.eventName} className="col-sm-4">
-                    <EventCard event={e} rules={e.rules} registerEvent={registerEvent} registeredEvents={registeredEvents} history={history} />
-                  </div>
-                );
-              }
-            })
-          }
-        </div>
-
-      </div>
-
-    );
+      );
   }
 }
 const mapStateToProps = state => ({
   events: state.events,
   registeredEvents: state.user.registeredEvents,
-  isLoading: state.loading.isLoading,
+  isLoading: state.loading,
 });
 
 
