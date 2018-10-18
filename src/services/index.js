@@ -236,6 +236,19 @@ const getContact = () => {
     .then(contact => contact);
 };
 
+const getSponsors = () => {
+  const reqOptions = {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  };
+  reqOptions.method = 'GET';
+  return fetch(`${config.api.url}/sponsors`, reqOptions)
+    .then(response => response.json())
+    .then(contact => contact);
+};
+
 export default {
   login,
   signup,
@@ -254,4 +267,5 @@ export default {
   getGuestLectures,
   getAboutUs,
   getContact,
+  getSponsors,
 };

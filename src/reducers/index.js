@@ -198,6 +198,16 @@ const contact = (state = initialState.contact, action) => {
   }
 };
 
+const sponsors = (state = initialState.sponsors, action) => {
+  switch (action.type) {
+    case 'FETCH_SPONSORS_SUCCESS':
+      return action.data.data.sponsors;
+
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   user,
   events,
@@ -211,6 +221,7 @@ const rootReducer = combineReducers({
   lectures,
   about,
   contact,
+  sponsors,
 });
 
 export default rootReducer;

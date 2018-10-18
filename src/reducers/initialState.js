@@ -17,6 +17,7 @@ const initialState = {
   lectures: [],
   about: [],
   contact: [],
+  sponsors: [],
 };
 
 export default initialState;
