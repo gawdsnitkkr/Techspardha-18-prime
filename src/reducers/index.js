@@ -180,6 +180,24 @@ const lectures = (state = initialState.lectures, action) => {
   }
 };
 
+const about = (state = initialState.about, action) => {
+  switch (action.type) {
+    case 'FETCH_ABOUT_SUCCESS':
+      return action.data.data.devs;
+    default:
+      return state;
+  }
+};
+
+const contact = (state = initialState.contact, action) => {
+  switch (action.type) {
+    case 'FETCH_CONTACT_SUCCESS':
+      return action.data.data.contacts;
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   user,
   events,
@@ -191,6 +209,8 @@ const rootReducer = combineReducers({
   currentEvents,
   loading,
   lectures,
+  about,
+  contact,
 });
 
 export default rootReducer;

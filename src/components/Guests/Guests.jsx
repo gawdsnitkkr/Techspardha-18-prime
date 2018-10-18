@@ -91,17 +91,9 @@ const GuestsCard = (props) => {
 };
 
 class Guests extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { getLectures } = this.props;
     getLectures();
-  }
-
-  componentDidUpdate() {
-    console.log(this.props.lectures);
   }
 
   render() {
