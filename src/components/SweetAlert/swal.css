@@ -1,8 +1,0 @@
-@media only screen and (max-width: 576px) { 
-    .swal2-title {
-    	font-size: 1rem !important;
-    }
-    .swal2-confirm {
-    	font-size: 0.75rem !important;
-    }
-}
