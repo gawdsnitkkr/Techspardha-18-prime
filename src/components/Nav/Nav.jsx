@@ -64,8 +64,8 @@ class Nav extends React.Component {
     const {
       loggedIn, onboard, currentEvents, timestamp,
     } = this.props;
-    const upComingEventsArray = currentEvents.filter(x => x.status === 'upcoming');
-    const liveEventsArray = currentEvents.filter(x => x.status === 'live');
+    const upComingEventsArray = currentEvents.filter(x => x.status === 'Upcoming');
+    const liveEventsArray = currentEvents.filter(x => x.status === 'LIVE!');
     upComingEventsArray.sort((a, b) => a.eventDetails.startTime - b.eventDetails.startTime);
     liveEventsArray.sort((a, b) => a.eventDetails.startTime - b.eventDetails.startTime);
 

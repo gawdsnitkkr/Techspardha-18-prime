@@ -180,6 +180,16 @@ const getAbout = () => (dispatch) => {
   });
 };
 
+const getSponsors = () => (dispatch) => {
+  services.getSponsors().then((data) => {
+    if (data.success) {
+      dispatch(success('FETCH_SPONSORS_SUCCESS', data));
+    } else {
+      dispatch(failure('FETCH_SPONSORS_FAILURE', data));
+    }
+  });
+};
+
 const getContact = () => (dispatch) => {
   services.getContact().then((data) => {
     if (data.success) {
@@ -208,4 +218,5 @@ export default {
   getLectures,
   getAbout,
   getContact,
+  getSponsors,
 };
