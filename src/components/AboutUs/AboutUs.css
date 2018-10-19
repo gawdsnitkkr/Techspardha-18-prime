@@ -39,6 +39,15 @@ body, html {
 	animation: rotation infinite 1s linear;
 }
 
+.dev-labels {
+	color: white;
+	font-weight: lighter;
+}
+
+.dev-labels:hover {
+	text-decoration: none;
+}
+
 @keyframes rotation {
 	0%{
 		transform: translate(-50%, -50%) rotateZ(0deg);

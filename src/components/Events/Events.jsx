@@ -11,7 +11,7 @@ const checkUser = (registerEvent, eventCategory, eventName, history) => {
   if ((localStorage.getItem('token') ? jwtDecode(localStorage.getItem('token')).name : null)) {
     registerEvent(eventCategory, eventName);
   } else {
-    SweetAlert('Please Login to Register for an event', 'error');
+    SweetAlert('Please Login to Register for an event', 'warning');
     history.push('/');
   }
 };
