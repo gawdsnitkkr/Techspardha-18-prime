@@ -40,9 +40,10 @@ class AboutUs extends React.Component {
           </p>
 
           <hr className="my-4" />
-          <h3 style={{ fontFamily: 'Covered By Your Grace' }}>
-            grilled by
+          <h3>
+            <img src="images/code.png" className="credit-icons"/> with <img src="images/heart.png" className="credit-icons"/>
             {' '}
+            <br />
             <a target="_blank" href="http://www.gawds.in/">
               <svg id="GAWDSLink_svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 128 37.422" style={{ width: '100px', height: 'auto' }}>
                 <g transform="matrix(.37663 0 0 .37663 -96.819 -287.24)">
@@ -51,9 +52,10 @@ class AboutUs extends React.Component {
               </svg>
             </a>
             <br />
-            spiced Up by
             {' '}
-            <img src="/images/techno.png" alt="" className="credit-icons" />
+            <a href="https://www.facebook.com/techn0byte/" target="_blank">
+              <img src="/images/techno.png" alt="" className="credit-icons" />
+            </a>
 
           </h3>
 
@@ -67,8 +69,8 @@ class AboutUs extends React.Component {
             {
               about.length > 0 ? (
                 <div className="col-6 col-md-3 h5 my-3">
-                  <a href="https://github.com/rishabh2609" target="_blank" className="btn btn-outline-light">
-                    Rishabh Chanana
+                  <a href="#" target="_blank" class="dev-labels">
+                    <h4 class="dev-labels">Rishabh Chanana</h4>
                   </a>
                 </div>
               ) : null
@@ -78,8 +80,8 @@ class AboutUs extends React.Component {
               about.length > 0 ? (
                 about.map(a => (
                   <div key={a.name} className="col-6 col-md-3 h5 my-3">
-                    <a href={a.link} target="_blank" className="btn btn-outline-light">
-                      {a.name}
+                    <a href={a.link} target="_blank" class="dev-labels">
+                      <h4 class="dev-labels">{a.name}</h4>
                     </a>
                   </div>
                 ))
